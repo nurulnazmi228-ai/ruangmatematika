@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pembagian dan Perkalian Polinom – Matematika Kelas 8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#fbfcff;--ink:#1d2a44;--soft:#5b6785;--line:#d6deef;--green:#1f7a6d;--greenbg:#e3f3ef;--mark:#ffe66d;--rose:#fbd3dc;--box:#fff;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-position:-1px -1px;color:var(--ink);font:17px/1.65 "Nunito Sans",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:28px 18px 60px;background:var(--paper);min-height:100vh;border-left:3px solid var(--rose);border-right:1px solid var(--line)}
+h1,h2,h3{font-family:"Bricolage Grotesque","Nunito Sans",sans-serif;line-height:1.2;margin:0}
+h1{font-size:2.1rem;font-weight:800}
+h2{font-size:1.5rem;margin:44px 0 12px;padding-bottom:6px;border-bottom:3px solid var(--green)}
+h3{font-size:1.1rem;margin:0 0 8px;color:var(--green)}
+.sub{color:var(--soft);margin:6px 0 0}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+nav a{color:var(--ink);text-decoration:none;font-weight:700;border:2px solid var(--ink);border-radius:8px;padding:4px 12px;font-size:.95rem}
+nav a:hover,nav a:focus-visible{background:var(--ink);color:#fff;outline:none}
+.m{font-family:"STIX Two Text","Cambria Math",Cambria,"Times New Roman",serif;font-style:italic;font-size:1.08em;white-space:nowrap}
+.m b,.m .n{font-style:normal;font-weight:400}
+.fr{display:inline-block;vertical-align:middle;text-align:center;line-height:1.15;margin:0 .1em}
+.fr>span{display:block;padding:0 .2em}
+.fr>span:first-child{border-bottom:1.5px solid currentColor}
+.card{background:var(--box);border:2px solid var(--ink);border-radius:10px;padding:14px 16px;margin:14px 0;box-shadow:4px 4px 0 var(--line)}
+.tanya{background:var(--mark);border-color:var(--ink)}
+.ingat{background:var(--greenbg);border-color:var(--green)}
+.ingat h3{color:var(--green)}
+.step{display:grid;grid-template-columns:2.2em 1fr;gap:2px 8px;margin:4px 0}
+.step .eq{grid-column:1/-1;padding-left:2.2em}
+.lbl{font-weight:700}
+.rumus{font-size:1.15rem;text-align:center;margin:8px 0}
+mark{background:var(--mark);color:inherit;padding:0 3px;border-radius:3px}
+mark.b{background:var(--rose)}
+.tugas{background:#fff;border:2px dashed var(--ink);border-radius:10px;padding:14px 18px;margin:14px 0}
+.tugas ol{margin:6px 0 0;padding-left:1.4em}
+.tugas li{margin:8px 0}
+.note{color:var(--soft);font-size:.95rem}
+a:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+@media(max-width:480px){body{font-size:16px}h1{font-size:1.7rem}main{padding:20px 14px 50px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Pembagian dan Perkalian Polinom</h1>
+<p class="sub">Matematika Kelas 8 · Bentuk Aljabar</p>
+<nav aria-label="Daftar isi">
+<a href="#pengertian">1. Pengertian</a>
+<a href="#pembagian">2. Pembagian</a>
+<a href="#perkalian">3. Perkalian</a>
+<a href="#latihan">4. Latihan</a>
+</nav>
+</header>
+
+<!-- ===================== PENGERTIAN ===================== -->
+<section id="pengertian">
+<h2>1. Pengertian monom dan polinom</h2>
+<p>Bentuk aljabar terdiri dari <b>suku-suku</b>. Suku adalah bagian bentuk aljabar yang dipisahkan oleh tanda <span class="m">+</span> atau <span class="m">−</span>. Contohnya, <span class="m">3x<sup>2</sup> − 5x + 7</span> memiliki tiga suku, yaitu <span class="m">3x<sup>2</sup></span>, <span class="m">−5x</span>, dan <span class="m">7</span>.</p>
+
+<div class="card ingat">
+<h3>Monom</h3>
+<p style="margin:0"><b>Monom</b> adalah bentuk aljabar yang hanya terdiri dari <b>satu suku</b>.</p>
+<p style="margin:6px 0 0">Contoh: <span class="m">5x</span>, <span class="m">−4y<sup>2</sup></span>, <span class="m">2ab</span>, <span class="m"><span class="fr"><span>1</span><span>2</span></span>y</span>, dan <span class="m">9</span>.</p>
+</div>
+
+<div class="card ingat">
+<h3>Polinom</h3>
+<p style="margin:0"><b>Polinom</b> (suku banyak) adalah bentuk aljabar yang terdiri dari <b>satu suku atau lebih</b>. Pada materi ini, polinom yang kita pakai memiliki dua suku atau lebih.</p>
+<p style="margin:6px 0 0">Contoh: <span class="m">a<sup>2</sup> + 6a</span>, <span class="m">xy − 4y<sup>2</sup></span>, dan <span class="m">x + y − 3</span>.</p>
+</div>
+
+<div class="card">
+<h3>Nama berdasarkan banyak suku</h3>
+<div style="overflow-x:auto"><table style="border-collapse:collapse;width:100%">
+<tr style="background:var(--greenbg)"><th style="border:1.5px solid var(--ink);padding:6px 10px;text-align:left">Nama</th><th style="border:1.5px solid var(--ink);padding:6px 10px;text-align:left">Banyak suku</th><th style="border:1.5px solid var(--ink);padding:6px 10px;text-align:left">Contoh</th></tr>
+<tr><td style="border:1.5px solid var(--ink);padding:6px 10px">Monom</td><td style="border:1.5px solid var(--ink);padding:6px 10px">1</td><td style="border:1.5px solid var(--ink);padding:6px 10px"><span class="m">7ab</span></td></tr>
+<tr><td style="border:1.5px solid var(--ink);padding:6px 10px">Binom</td><td style="border:1.5px solid var(--ink);padding:6px 10px">2</td><td style="border:1.5px solid var(--ink);padding:6px 10px"><span class="m">x + 4</span></td></tr>
+<tr><td style="border:1.5px solid var(--ink);padding:6px 10px">Trinom</td><td style="border:1.5px solid var(--ink);padding:6px 10px">3</td><td style="border:1.5px solid var(--ink);padding:6px 10px"><span class="m">2x<sup>2</sup> + 3x − 20</span></td></tr>
+</table></div>
+<p class="note" style="margin:8px 0 0">Binom dan trinom adalah polinom dengan jumlah suku tertentu.</p>
+</div>
+</section>
+
+<!-- ===================== BAGIAN 1 ===================== -->
+<section id="pembagian">
+<h2>2. Pembagian bentuk monom dan polinom</h2>
+
+<div class="card tanya">
+<h3>Pertanyaan pembuka</h3>
+<p style="margin:0">Sebidang tanah berbentuk persegi panjang dengan lebar <span class="m">a</span> m dan luas <span class="m">(a<sup>2</sup> + 6a)</span> m<sup>2</sup>. Hitunglah panjangnya.</p>
+<p style="margin:8px 0 0">Luas = panjang × lebar, maka panjang = luas : lebar = <span class="m">(a<sup>2</sup> + 6a) : a</span>. Bagaimana cara menghitungnya? Perhatikan contoh berikut.</p>
+</div>
+
+<div class="card">
+<h3>Contoh 1</h3>
+<p class="lbl" style="margin:0">(1) <span class="m">(a<sup>2</sup> + 6a) : a</span></p>
+<div class="step"><span></span><span class="m">= (a<sup>2</sup> + 6a) × <span class="fr"><span>1</span><span>a</span></span></span>
+<span></span><span class="m">= a<sup>2</sup><span class="n">(</span><span class="fr"><span>1</span><span>a</span></span><span class="n">)</span> + 6a<span class="n">(</span><span class="fr"><span>1</span><span>a</span></span><span class="n">)</span></span>
+<span></span><span class="m">= a + 6</span></div>
+<p class="note" style="margin:6px 0 0">Jadi panjang tanah itu adalah <span class="m">(a + 6)</span> m.</p>
+
+<hr style="border:0;border-top:1px dashed var(--line);margin:16px 0">
+
+<p class="lbl" style="margin:0">(2) <span class="m">(xy − 4y<sup>2</sup>) : <span class="fr"><span>1</span><span>2</span></span>y</span></p>
+<div class="step"><span></span><span class="m">= (xy − 4y<sup>2</sup>) × <span class="fr"><span>2</span><span>y</span></span></span>
+<span></span><span class="m">= xy<span class="n">(</span><span class="fr"><span>2</span><span>y</span></span><span class="n">)</span> − 4y<sup>2</sup><span class="n">(</span><span class="fr"><span>2</span><span>y</span></span><span class="n">)</span></span>
+<span></span><span class="m">= 2x − 8y</span></div>
+</div>
+
+<div class="card ingat">
+<h3>Ingat</h3>
+<p style="margin:0"><span class="m"><span class="fr"><span>1</span><span>2</span></span>y</span> dapat ditulis <span class="m"><span class="fr"><span>y</span><span>2</span></span></span>. Oleh karena itu, kebalikan dari <span class="m"><span class="fr"><span>1</span><span>2</span></span>y</span> adalah <span class="m"><span class="fr"><span>2</span><span>y</span></span></span>.</p>
+</div>
+
+<div class="card ingat">
+<h3>Kesimpulan</h3>
+<p style="margin:0">Untuk membagi polinom dengan monom, kalikan polinom itu dengan <b>kebalikan dari monom</b> (pembaginya). Setelah itu, sederhanakan hasilnya.</p>
+</div>
+</section>
+
+<!-- ===================== BAGIAN 2 ===================== -->
+<section id="perkalian">
+<h2>3. Perkalian polinom dengan polinom</h2>
+<p>Perkalian monom dan polinom sudah kita pelajari. Sekarang, apakah perkalian <b>polinom dengan polinom</b> bisa dilakukan dengan cara yang sama? Bisa. Setiap suku di kurung pertama dikalikan dengan setiap suku di kurung kedua.</p>
+
+<div class="card">
+<h3>Contoh 2 · Mengalikan dua suku dengan dua suku</h3>
+<p class="lbl" style="margin:0">(1) <span class="m">(x + 1)(y + 3)</span></p>
+<div class="step"><span></span><span class="m">= xy + 3x + y + 3</span></div>
+<p class="lbl" style="margin:10px 0 0">(2) <span class="m">(a − 3)(b + 2)</span></p>
+<div class="step"><span></span><span class="m">= ab + 2a − 3b − 6</span></div>
+<p class="note" style="margin:8px 0 0">Urutan mengalikan <span class="m">(x + 1)(y + 3)</span>: ① <span class="m">x · y</span>, ② <span class="m">x · 3</span>, ③ <span class="m">1 · y</span>, ④ <span class="m">1 · 3</span>.</p>
+</div>
+
+<div class="card">
+<h3>Contoh 3 · Ada suku-suku sejenis</h3>
+<p class="lbl" style="margin:0">(1) <span class="m">(2x − 5)(x + 4)</span></p>
+<div class="step"><span></span><span class="m">= 2x<sup>2</sup> + <mark>8x</mark> − <mark>5x</mark> − 20</span>
+<span></span><span class="m">= 2x<sup>2</sup> + 3x − 20</span></div>
+<p class="lbl" style="margin:10px 0 0">(2) <span class="m">(3x + 2y)(2x − 3y)</span></p>
+<div class="step"><span></span><span class="m">= 6x<sup>2</sup> − <mark>9xy</mark> + <mark>4xy</mark> − 6y<sup>2</sup></span>
+<span></span><span class="m">= 6x<sup>2</sup> − 5xy − 6y<sup>2</sup></span></div>
+<p class="note" style="margin:8px 0 0">Jika terdapat suku-suku sejenis, gabungkan suku-suku itu. (Suku sejenis diberi warna kuning.)</p>
+</div>
+
+<div class="card">
+<h3>Contoh 4 · Salah satu kurung punya tiga suku</h3>
+<p class="m" style="margin:0 0 4px">(a + b)<mark class="b">(x + y − 3)</mark></p>
+<div class="step"><span></span><span class="m">= a<mark class="b">(x + y − 3)</mark> + b<mark class="b">(x + y − 3)</mark></span>
+<span></span><span class="m">= ax + ay − 3a + bx + by − 3b</span></div>
+<p class="note" style="margin:8px 0 0">Pertimbangkan <span class="m">x + y − 3</span> sebagai 1 nomor (satu kesatuan), lalu kalikan dengan <span class="m">a</span> dan <span class="m">b</span> satu per satu.</p>
+</div>
+
+<div class="card ingat">
+<h3>Kesimpulan</h3>
+<p style="margin:0">Kalikan <b>setiap suku</b> di kurung pertama dengan <b>setiap suku</b> di kurung kedua, lalu gabungkan suku-suku sejenis. Hati-hati dengan tanda positif dan negatif.</p>
+</div>
+</section>
+
+<!-- ===================== BAGIAN 3 ===================== -->
+<section id="latihan">
+<h2>4. Latihan soal</h2>
+<p><b>Kerjakan di buku tulismu</b>, lengkap dengan langkah-langkahnya. Kumpulkan sesuai arahan gurumu.</p>
+
+<div class="tugas">
+<h3>Latihan 1 · Hitunglah</h3>
+<ol>
+<li><span class="m">(10x<sup>2</sup> + 7x) : x</span></li>
+<li><span class="m">(8a<sup>2</sup>b − 2ab<sup>2</sup>) : 2ab</span></li>
+<li><span class="m">(4x<sup>2</sup> − 6xy) : <span class="fr"><span>2</span><span>3</span></span>x</span></li>
+<li><span class="m">(−2ab + a) : <span class="n">(</span><span class="fr"><span>a</span><span>4</span></span><span class="n">)</span></span></li>
+</ol>
+</div>
+
+<div class="tugas">
+<h3>Latihan 2 · Jabarkan</h3>
+<ol>
+<li><span class="m">(a − b)(x − y + 2)</span></li>
+<li><span class="m">(x + y + 1)(x − y)</span></li>
+</ol>
+</div>
+</section>
+</main>
+</body>
+</html>
