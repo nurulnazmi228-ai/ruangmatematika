@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jembatan Suku Sejenis | Ruang Matematika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ec;--grid:rgba(31,111,92,.08);--card:#fff;--ink:#17261f;--mute:#5d6b64;--line:#dcd8c9;--hero:#0f3d33;--chalk:#f4f1e6;--accent:#f2b134;--main:#1f6f5c;--soft:#e9f2ee;--ok:#1b7f4b;--okbg:#e4f5ea;--bad:#b3261e;--badbg:#fdeceb;--arrow:#8a5ac2;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d;--arrow:#b891ee}}
+:root[data-theme="dark"]{--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d;--arrow:#b891ee}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"DM Sans",system-ui,"Segoe UI",Arial,sans-serif;line-height:1.55;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.2}
+header{background:var(--hero);color:var(--chalk);border-radius:0 0 28px 28px;padding:18px 0 28px}
+header a{color:var(--accent);text-decoration:none;font-weight:700;font-size:.92rem}
+header h1{font-size:clamp(1.6rem,5vw,2.3rem);margin:14px 0 6px}header p{margin:0;color:rgba(244,241,230,.85)}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:14px 0}
+label.f{display:block;font-weight:700;font-size:.88rem;margin:10px 0 3px}
+input[type=text],textarea{width:100%;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+input:focus-visible,textarea:focus-visible,.btn:focus-visible,.node:focus-visible,.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.modes label{flex:1;min-width:150px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer}
+.modes label:has(input:checked){border-color:var(--main);background:var(--soft)}
+.btn{font:inherit;font-weight:700;background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 18px;cursor:pointer}.btn.alt{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+.link{background:none;border:0;color:var(--main);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:8px}
+.hint{font-size:.86rem;color:var(--mute)}.pesan{color:var(--bad);font-weight:700;margin:8px 0 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{font:inherit;font-weight:700;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--main);border-color:var(--main);color:#fff}.tab.lock{opacity:.55;cursor:not-allowed}
+.info{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:700}.info span{background:var(--soft);color:var(--main);border-radius:999px;padding:3px 12px}
+.arena{position:relative;display:grid;grid-template-columns:1fr minmax(44px,90px) 1fr;margin:14px 0}
+.col{display:flex;flex-direction:column;gap:10px}
+.node{font-family:"Cambria Math",Cambria,Georgia,serif;font-weight:700;font-size:1.25rem;min-height:48px;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:6px 12px;cursor:pointer;touch-action:none;user-select:none}
+.node.long{font-size:1.02rem}.node.l{text-align:left}.node.r{text-align:right}
+.node.sel{border-color:var(--arrow);box-shadow:0 0 0 3px rgba(138,90,194,.25)}.node.ok{border-color:var(--ok);background:var(--okbg)}.node.no{border-color:var(--bad);background:var(--badbg)}
+svg.ln{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}.row .e{font-family:"Cambria Math",Cambria,Georgia,serif;font-weight:700;font-size:1.15rem}
+.row input{width:120px}.row input.ok{border-color:var(--ok);background:var(--okbg)}.row input.no{border-color:var(--bad);background:var(--badbg)}
+.fb{padding:9px 12px;border-radius:10px;margin-top:8px;font-size:.93rem}.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--badbg);color:var(--bad)}.fb span{color:var(--ink)}
+.banner{background:var(--soft);border:1.5px solid var(--main);border-radius:16px;padding:14px 18px;margin:14px 0}.banner .nilai{font-family:Fraunces,Georgia,serif;font-size:2.3rem;font-weight:800;color:var(--main);line-height:1}
+.aks{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}.rekap{margin:14px 0 0;font-size:.9rem;color:var(--mute)}.rekap b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="index.html">&larr; Beranda</a><a href="materi-aljabar-7.html#p3" style="margin-left:14px">Materi Pertemuan 3</a><a href="tugas-aljabar-7-p3.html" style="margin-left:14px">Tugas Pertemuan 3</a><h1>Jembatan Suku Sejenis</h1><p>Game Aljabar Kelas 7 &middot; 4 level. Sambungkan suku yang sejenis dengan panah dari kiri ke kanan.</p></div></header>
+<main class="wrap">
+ <section class="sec" id="start">
+  <h2 style="font-size:1.2rem">Cara bermain</h2>
+  <p class="hint" style="margin:6px 0 0">Tarik garis dari suku di kiri ke suku sejenisnya di kanan (atau ketuk kiri, lalu ketuk kanan). Suku sejenis punya variabel dan pangkat yang sama. Tekan Periksa. Garis hijau benar, garis merah disertai alasan. Level 2 dan 3 lanjut dengan menjumlahkan atau mengurangkan pasangan itu. Level 4 menyambungkan bentuk aljabar dengan bentuk paling sederhananya. Kemajuanmu tersimpan, jadi besok bisa dilanjutkan dengan nama dan kelas yang sama.</p>
+  <label class="f" for="nama">Nama</label><input type="text" id="nama" autocomplete="off">
+  <label class="f" for="kelas">Kelas</label><input type="text" id="kelas" placeholder="Contoh: 7.1" autocomplete="off">
+  <div class="pesan" id="err"></div>
+  <p style="margin-bottom:0"><button class="btn" id="mulai" type="button">Mulai bermain</button></p>
+ </section>
+ <div id="game" style="display:none">
+  <p class="rekap" id="rekap"></p>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Level"></div>
+  <div id="main"></div>
+ </div>
+</main>
+
+<script>
+var POOL=["x","y","z","a","b","xy","xx","yy",""], TRAP=[["x","xx"],["x","xy"],["y","yy"],["x","y"],["a","b"],["","x"],["xy","x"]], RN={1:10,2:5,3:5,4:5}, LIN=["x","y","z","a","b",""], MAXLV=4;
+var BUAH={a:"apel",j:"jeruk",m:"mangga",p:"pisang",s:"salak"}, VAR=["x","y","a","b","m","n","p","q"];
+var $=function(i){return document.getElementById(i)}, SK="suku-sejenis7:";
+var G={ID:null,lv:1,r:0,skor:0,salah:0,sal:0,R:null,links:[],sel:null,drag:false,mouse:null,tahap:1,PR:{},QS:null};
+var QB=[
+ {st:1,q:"Mengapa 3a dan 2j tidak boleh digabung menjadi 5aj?",o:["Karena apel dan jeruk adalah jenis yang berbeda, jadi tidak bisa dijumlahkan menjadi satu suku","Karena angkanya terlalu kecil","Karena harus selalu ditulis terpisah memakai huruf besar"],a:0},
+ {st:1,q:"Jika a menyatakan banyak kg apel, apa arti 8a?",o:["8 kg apel","8 jenis apel","Apel seharga 8 rupiah"],a:0},
+ {st:2,q:"Mengapa jumlah yang terjual dalam cerita tidak boleh lebih banyak dari stok pagi?",o:["Karena kita tidak bisa menjual lebih banyak dari yang dimiliki","Karena sisa stok harus selalu nol","Karena huruf pada suku harus berbeda"],a:0},
+ {st:2,q:"Sisa stok apel ditulis 4a. Pernyataan yang tepat adalah ...",o:["Apel tersisa 4 kg","Apel terjual 4 kg","Ada 4 jenis apel"],a:0}
+];
+function rnd(n){return Math.floor(Math.random()*n)}
+function acak(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function koef(){var c=rnd(9)+1;return rnd(2)?c:-c}
+function fmt(n){return String(n).replace("-","−")}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+function sigTxt(sg){var c={};sg.split("").forEach(function(h){c[h]=(c[h]||0)+1});return Object.keys(c).sort().map(function(h){return h+(c[h]>1?"²":"")}).join("")}
+function term(c,sg){if(sg==="")return fmt(c);var s=sigTxt(sg);return c===1?s:c===-1?"−"+s:fmt(c)+s}
+function nm(sg){return sg===""?"konstanta":sigTxt(sg)}
+function lab(x){return x.txt!==undefined?x.txt:term(x.c,x.s)}
+function gabung(l){return l.map(function(x,i){return i===0?term(x.c,x.s):(x.c<0?" − "+term(-x.c,x.s):" + "+term(x.c,x.s))}).join("")}
+
+function ronde12(lv){
+  if(lv===2){var sl=acak(LIN).slice(0,5);return {L:acak(sl).map(function(s){return {s:s,c:koef(),op:rnd(2)?"+":"−"}}),Rr:acak(sl).map(function(s){return {s:s,c:koef()}})}}
+  var t=TRAP[rnd(TRAP.length)], rest=acak(POOL.filter(function(s){return t.indexOf(s)<0})), sg=t.concat(rest.slice(0,5-t.length));
+  return {L:acak(sg).map(function(s){return {s:s,c:koef(),op:rnd(2)?"+":"−"}}), Rr:acak(sg).map(function(s){return {s:s,c:koef()}})};
+}
+function ronde3(){
+  var plus=rnd(2)===0, ks=acak(Object.keys(BUAH)).slice(0,4), st=plus?1:2;
+  var L=ks.map(function(s){return {s:s,c:plus?rnd(9)+1:rnd(7)+3,op:plus?"+":"−"}});
+  var Rr=acak(ks).map(function(s){var l=L.filter(function(x){return x.s===s})[0];return {s:s,c:plus?rnd(9)+1:rnd(l.c)+1}});
+  return {L:acak(L),Rr:Rr,st:st,ks:ks};
+}
+function satu(){
+  var v=acak(VAR),s1=v[0],s2=v[1],a1=koef(),a2=koef(),b1=koef(),b2=0,k=null;
+  while(a1+a2===0)a2=koef();
+  var dua=rnd(2); if(dua){b2=koef();while(b1+b2===0)b2=koef()}
+  var t=[{c:a1,s:s1},{c:a2,s:s1},{c:b1,s:s2}]; if(dua)t.push({c:b2,s:s2});
+  var sim=[{c:a1+a2,s:s1},{c:b1+b2,s:s2}], tot=a1+a2+b1+b2;
+  if(rnd(5)<2){var k1=koef(),k2=koef();while(k1+k2===0)k2=koef();t.push({c:k1,s:""},{c:k2,s:""});sim.push({c:k1+k2,s:""});tot+=k1+k2}
+  var d1=tot===0?null:term(tot,s1), d2=gabung([sim[0],{c:-sim[1].c,s:s2}].concat(sim.slice(2)));
+  return {txt:gabung(acak(t)),sim:gabung(sim),d1:d1,d2:d2};
+}
+function ronde4(){
+  var E=[],pakai={};
+  while(E.length<4){var e=satu(); if(!pakai[e.txt]&&!pakai[e.sim]){pakai[e.txt]=1;pakai[e.sim]=1;E.push(e)}}
+  var Rr=E.map(function(e,i){return {k:i,txt:e.sim}}), ada={}; Rr.forEach(function(x){ada[x.txt]=1});
+  var kand=[]; E.forEach(function(e){ if(e.d1) kand.push({k:-1,txt:e.d1,why:"Suku yang variabelnya berbeda tidak boleh digabung menjadi satu suku."}); kand.push({k:-1,txt:e.d2,why:"Perhatikan tanda: koefisien dijumlahkan beserta tandanya, lalu variabelnya tetap."}) });
+  acak(kand).forEach(function(x){ if(Rr.length<6&&!ada[x.txt]){ada[x.txt]=1;Rr.push(x)} });
+  return {L:E.map(function(e,i){return {k:i,txt:e.txt}}),Rr:acak(Rr)};
+}
+function buatRonde(lv){return lv===4?ronde4():lv===3?ronde3():ronde12(lv)}
+function sama(a,b){return G.lv===4?(a.k===b.k&&a.k>=0):a.s===b.s}
+function alasan(a,b){
+  if(G.lv===4) return b.k<0?b.why:"bentuk itu adalah hasil penyederhanaan bentuk yang lain.";
+  if(a.s==="")return "konstanta hanya sejenis dengan konstanta (bilangan tanpa variabel)";
+  if(b.s==="")return nm(a.s)+" memuat variabel, sedangkan "+nm(b.s)+" hanya bilangan";
+  var ua=a.s.split("").filter(function(h,i,x){return x.indexOf(h)===i}).join(""), ub=b.s.split("").filter(function(h,i,x){return x.indexOf(h)===i}).join("");
+  return ua===ub?nm(a.s)+" dan "+nm(b.s)+" variabelnya sama tetapi pangkatnya berbeda":nm(a.s)+" dan "+nm(b.s)+" memuat variabel yang berbeda";
+}
+function ur(v){
+  var s=String(v).toLowerCase().replace(/\s/g,"").replace(/[−–]/g,"-").replace(/[×·*]/g,"").replace(/²/g,"^2"), m=/^([+-]?)(\d*)([a-z^0-9]*)$/.exec(s);
+  if(!m||(m[2]===""&&m[3]==="")) return null;
+  var vr=m[3].replace(/([a-z])\^(\d)/g,function(x,l,n){return Array(+n+1).join(l)}); if(/[^a-z]/.test(vr)) return null;
+  if(m[2]===""&&vr==="") return null; var c=m[2]===""?1:+m[2];
+  return {c:m[1]==="-"?-c:c,v:vr.split("").sort().join("")};
+}
+function cekJ(v,res,sg){var r=ur(v); if(!r) return false; return res===0?r.c===0:(r.c===res&&r.v===sg.split("").sort().join(""));}
+
+/* ---------- penyimpanan ---------- */
+function kid(){return G.ID.nama.toLowerCase().replace(/\s+/g," ")+"|"+G.ID.kelas+"|p"}
+function muat(){try{G.PR=JSON.parse(localStorage.getItem(SK+"p:"+kid())||"{}")||{}}catch(e){G.PR={}}}
+function simpan(){try{localStorage.setItem(SK+"p:"+kid(),JSON.stringify(G.PR))}catch(e){}}
+function bintangTxt(n){return n>=90?"⭐⭐⭐":n>=70?"⭐⭐":n>=50?"⭐":"belum dapat bintang"}
+
+/* ---------- tampilan umum ---------- */
+function rekap(){
+  var h="<b>"+esc(G.ID.nama)+"</b> (kelas "+esc(G.ID.kelas)+") &middot; Skor terbaik: "+[1,2,3,4].map(function(l){return "L"+l+" = "+(G.PR[l]?G.PR[l].skor:"-")}).join(" &middot; ");
+  $("rekap").innerHTML=h+'<button class="link" id="ganti" type="button">Ganti pemain</button>'; $("ganti").onclick=function(){$("game").style.display="none";$("start").style.display="block"};
+}
+function tabs(){
+  var h="";
+  for(var l=1;l<=MAXLV;l++){var kunci=l>1&&!G.PR[l-1];
+   h+='<button class="tab'+(kunci?" lock":"")+'" role="tab" aria-selected="'+(l===G.lv)+'" '+(kunci?'aria-disabled="true" title="Selesaikan level sebelumnya" ':"")+'onclick="mainLv('+l+')">Level '+l+(kunci?" 🔒":G.PR[l]?" ✓":"")+'</button>';}
+  $("tabs").innerHTML=h;
+}
+function mainLv(l){
+  if(l>MAXLV||(l>1&&!G.PR[l-1])) return;
+  G.lv=l; G.r=0; G.skor=0; G.salah=0; tabs(); ronde();
+}
+function pengingat(){
+  var done=[1,2,3,4].filter(function(l){return G.PR[l]});
+  if(!done.length){mainLv(1);return}
+  var next=[1,2,3,4].filter(function(l){return !G.PR[l]})[0], tgl="";
+  if(G.PR.terakhir){try{tgl=new Date(G.PR.terakhir).toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}catch(e){}}
+  G.lv=next||1; tabs();
+  $("main").innerHTML='<div class="banner"><div class="hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em">Selamat datang kembali</div><h2 style="font-size:1.3rem;margin:4px 0 6px">'+esc(G.ID.nama)+'</h2>'+(tgl?'<div class="hint">Terakhir bermain: '+tgl+'</div>':'')
+   +'<p style="margin:10px 0 4px;font-weight:700">Pengingat level yang sudah kamu selesaikan:</p><ul style="margin:0;padding-left:20px">'+done.map(function(l){return '<li>Level '+l+': skor '+G.PR[l].skor+' '+bintangTxt(G.PR[l].skor)+'</li>'}).join("")+'</ul>'
+   +'<p style="margin:10px 0 4px;font-weight:700">Ingat lagi:</p><ul style="margin:0;padding-left:20px"><li><b>Suku sejenis</b> punya variabel dan pangkat yang sama. 3x dan −5x sejenis, tetapi 3x dan 3x² bukan.</li><li><b>Menggabungkan:</b> jumlahkan atau kurangkan koefisiennya, variabelnya tetap. 3x + (−5x) = −2x.</li><li><b>Menyederhanakan:</b> gabungkan hanya suku sejenis, dan perhatikan tandanya.</li></ul>'
+   +'<div class="aks">'+(next?'<button class="btn" type="button" onclick="mainLv('+next+')">Lanjut ke Level '+next+' &rarr;</button>':'<span style="font-weight:700">Semua level sudah selesai. Hebat!</span>')+'<button class="btn alt" type="button" onclick="mainLv(1)">Pemanasan: ulang Level 1</button></div></div>';
+}
+
+/* ---------- ronde ---------- */
+function intro(){
+  var R=G.R;
+  if(G.lv===1) return "Sambungkan suku sejenis";
+  if(G.lv===2) return "Sambungkan suku sejenis, lalu gabungkan (semua suku berbentuk linear, tanpa pangkat)";
+  if(G.lv===3){var cerita=R.st===1?"Pak Anton memanen buah di kebunnya. Hasil panen pagi hari seperti kolom kiri, dan panen sore hari seperti kolom kanan (dalam kg). Sambungkan buah yang sama, lalu hitung total panen setiap jenis.":"Toko buah Bu Rina memiliki stok pagi seperti kolom kiri (dalam kg). Buah yang terjual hari ini seperti kolom kanan. Sambungkan buah yang sama, lalu hitung sisa stok setiap jenis.";
+    return cerita+'</p><p class="hint" style="margin:4px 0 0">'+R.ks.map(function(k){return k+" = "+BUAH[k]}).join(", ")}
+  return "Sambungkan bentuk di kiri dengan bentuk paling sederhananya di kanan. Hati-hati, ada pilihan yang menyesatkan.";
+}
+function ronde(){
+  G.R=buatRonde(G.lv); G.links=[]; G.sel=null; G.sal=0; G.tahap=1;
+  $("main").innerHTML='<div class="sec"><div class="info"><span>Level '+G.lv+' &middot; Ronde '+(G.r+1)+' dari '+RN[G.lv]+'</span><span>Skor: '+G.skor+'</span></div><p style="margin:10px 0 0;font-weight:700">'+intro()+'</p>'
+   +'<div class="arena" id="arena"><div class="col" id="cl"></div><div></div><div class="col" id="cr"></div><svg class="ln" id="svg"><defs>'
+   +['n','ok','no'].map(function(k){return '<marker id="m'+k+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--'+(k==="n"?"arrow":k==="ok"?"ok":"bad")+')"/></marker>'}).join("")+'</defs></svg></div>'
+   +'<div id="fb"></div><div class="aks" id="aks"></div><div id="hit"></div></div>';
+  var lg=G.lv===4?" long":"";
+  $("cl").innerHTML=G.R.L.map(function(x,i){return '<button class="node l'+lg+'" type="button" data-i="'+i+'">'+lab(x)+'</button>'}).join("");
+  $("cr").innerHTML=G.R.Rr.map(function(x,i){return '<button class="node r'+lg+'" type="button" data-i="'+i+'">'+lab(x)+'</button>'}).join("");
+  $("aks").innerHTML='<button class="btn" type="button" onclick="periksa()">Periksa</button><button class="btn alt" type="button" onclick="hapusSemua()">Ulangi garis</button>';
+  draw();
+}
+function node(side,i){return document.querySelector('.node.'+side+'[data-i="'+i+'"]')}
+function terkunci(side,i){return G.links.some(function(k){return k.ok===true&&(side==="l"?k.l===i:k.r===i)})}
+function connect(l,r){
+  if(terkunci("l",l)||terkunci("r",r)) return;
+  G.links=G.links.filter(function(k){return k.l!==l&&k.r!==r}); G.links.push({l:l,r:r,ok:null}); $("fb").innerHTML=""; draw();
+}
+function hapusSemua(){G.links=G.links.filter(function(k){return k.ok===true});G.sel=null;$("fb").innerHTML="";draw()}
+function pt(el,side){var a=$("arena").getBoundingClientRect(),r=el.getBoundingClientRect();return {x:(side==="l"?r.right:r.left)-a.left,y:r.top+r.height/2-a.top}}
+function draw(){
+  var svg=$("svg"); if(!svg) return; Array.prototype.slice.call(svg.querySelectorAll("line")).forEach(function(n){n.remove()});
+  function ln(a,b,k,dash){var e=document.createElementNS("http://www.w3.org/2000/svg","line");e.setAttribute("x1",a.x);e.setAttribute("y1",a.y);e.setAttribute("x2",b.x);e.setAttribute("y2",b.y);e.setAttribute("stroke-width","3.5");e.setAttribute("stroke-linecap","round");e.style.stroke="var(--"+(k==="n"?"arrow":k==="ok"?"ok":"bad")+")";if(dash)e.setAttribute("stroke-dasharray","6 6");e.setAttribute("marker-end","url(#m"+k+")");svg.appendChild(e)}
+  G.links.forEach(function(k){ var a=node("l",k.l),b=node("r",k.r); if(a&&b) ln(pt(a,"l"),pt(b,"r"),k.ok===true?"ok":k.ok===false?"no":"n"); });
+  if(G.drag&&G.sel!=null&&G.mouse){var a=node("l",G.sel); if(a) ln(pt(a,"l"),G.mouse,"n",true)}
+  document.querySelectorAll(".node").forEach(function(n){var s=n.classList.contains("l")?"l":"r",i=+n.dataset.i,k=G.links.filter(function(x){return x[s]===i})[0];
+    n.className="node "+s+(G.lv===4?" long":"")+(k&&k.ok===true?" ok":k&&k.ok===false?" no":"")+(s==="l"&&G.sel===i?" sel":"")});
+}
+function periksa(){
+  if(G.tahap!==1) return;
+  if(G.links.length<G.R.L.length){ $("fb").innerHTML='<div class="fb no"><b>Sambungkan semua bentuk di kiri dulu.</b></div>'; return; }
+  var salah=[];
+  G.links.forEach(function(k){ if(k.ok===true) return; var a=G.R.L[k.l],b=G.R.Rr[k.r]; k.ok=sama(a,b); if(!k.ok) salah.push(lab(a)+" dan "+lab(b)+": "+alasan(a,b)+(/\.$/.test(alasan(a,b))?"":".")); });
+  G.sal+=salah.length; G.salah+=salah.length; draw();
+  if(salah.length){
+    $("fb").innerHTML='<div class="fb no"><b>Ada '+salah.length+' garis yang belum tepat.</b><br><span>'+salah.join("<br>")+'</span></div>';
+    $("aks").innerHTML='<button class="btn" type="button" onclick="perbaiki()">Perbaiki garis yang salah</button>'; return;
+  }
+  $("fb").innerHTML='<div class="fb ok"><b>Semua garis benar!</b></div>';
+  if(G.lv===1||G.lv===4) selesaiRonde(); else tahap2();
+}
+function perbaiki(){G.links=G.links.filter(function(k){return k.ok===true});$("fb").innerHTML="";$("aks").innerHTML='<button class="btn" type="button" onclick="periksa()">Periksa</button><button class="btn alt" type="button" onclick="hapusSemua()">Ulangi garis</button>';draw()}
+
+/* ---------- Level 2 dan 3: gabungkan ---------- */
+function pasang(){return G.R.L.map(function(a){var b=G.R.Rr.filter(function(x){return x.s===a.s})[0],res=a.op==="+"?a.c+b.c:a.c-b.c;return {a:a,b:b,res:res}})}
+function tahap2(){
+  G.tahap=2; G.P=pasang(); $("aks").innerHTML=""; G.QS=null;
+  var q="";
+  if(G.lv===3){G.QS=acak(QB.filter(function(x){return x.st===G.R.st}))[0]; var ord=acak([0,1,2]); G.QS.ord=ord;
+    q='<div style="margin:14px 0 0"><p style="margin:0 0 6px;font-weight:700">Pertanyaan bacaan: '+G.QS.q+'</p>'+ord.map(function(j){return '<label style="display:block;padding:7px 10px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px;cursor:pointer"><input type="radio" name="qs" value="'+j+'"> '+G.QS.o[j]+'</label>'}).join("")+'<div id="qsf"></div></div>'}
+  $("hit").innerHTML='<p style="margin:14px 0 8px;font-weight:700">Sekarang '+(G.lv===3?(G.R.st===1?"hitung total panen":"hitung sisa stok")+" tiap jenis:":"gabungkan setiap pasangan:")+'</p>'+G.P.map(function(p,i){
+    return '<div class="row"><span class="e">'+term(p.a.c,p.a.s)+' '+p.a.op+' '+(p.a.op==="−"||G.lv===2?'('+term(p.b.c,p.b.s)+')':term(p.b.c,p.b.s))+' =</span><input type="text" id="h'+i+'" autocomplete="off" aria-label="Hasil pasangan '+(i+1)+'"></div><div id="hf'+i+'"></div>';
+  }).join("")+q+'<p class="hint">Contoh jawaban: 5x, −3y, 8, atau 0. Gabungkan koefisiennya, variabelnya tetap.</p><div class="aks"><button class="btn" type="button" onclick="periksaHitung()">Periksa jawaban</button></div><div class="pesan" id="ph"></div>';
+}
+function periksaHitung(){
+  var kosong=G.P.filter(function(p,i){return !ur($("h"+i).value)}).length;
+  if(kosong){$("ph").textContent="Isi semua jawaban dengan benar penulisannya (contoh 5x atau −3).";return}
+  if(G.QS&&!document.querySelector('input[name="qs"]:checked')){$("ph").textContent="Jawab juga pertanyaan bacaannya.";return}
+  var w=0;
+  G.P.forEach(function(p,i){var e=$("h"+i),ok=cekJ(e.value,p.res,p.a.s),f=$("hf"+i);e.disabled=true;e.className=ok?"ok":"no";if(!ok)w++;
+    f.innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"Benar.":"Belum tepat.")+'</b> <span>'+fmt(p.a.c)+" "+p.a.op+" "+(p.b.c<0?"("+fmt(p.b.c)+")":fmt(p.b.c))+" = "+fmt(p.res)+', jadi '+(p.res===0?"0":term(p.res,p.a.s))+'.</span></div>'});
+  if(G.QS){var c=document.querySelector('input[name="qs"]:checked'),ok=+c.value===G.QS.a; if(!ok)w++;
+    document.querySelectorAll('input[name="qs"]').forEach(function(x){x.disabled=true});
+    $("qsf").innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"Benar.":"Belum tepat.")+'</b> <span>Jawaban yang tepat: '+G.QS.o[G.QS.a]+'.</span></div>'}
+  G.sal+=w; G.salah+=w; $("ph").textContent=""; selesaiRonde();
+}
+
+/* ---------- selesai ronde dan level ---------- */
+function selesaiRonde(){
+  var unit=100/RN[G.lv], poin=Math.max(0,Math.round(unit-unit/5*G.sal)); G.skor+=poin; G.r++;
+  var akhir=G.r>=RN[G.lv];
+  $("aks").innerHTML='<p style="margin:0;font-weight:700;width:100%">Poin ronde ini: '+poin+(G.sal?" (ada "+G.sal+" kesalahan)":" (sempurna!)")+'</p><button class="btn" type="button" onclick="'+(akhir?"selesaiLevel()":"ronde()")+'">'+(akhir?"Lihat hasil level":"Ronde berikutnya &rarr;")+'</button>';
+  var hs=document.querySelector("#hit .aks"); if(hs) hs.style.display="none";
+}
+function selesaiLevel(){
+  var l=G.lv, best=G.PR[l]; if(!best||G.skor>best.skor) G.PR[l]={skor:G.skor,salah:G.salah}; G.PR.terakhir=new Date().toISOString(); simpan();
+  $("main").innerHTML='<div class="banner"><div class="hint" style="font-weight:700;text-transform:uppercase;letter-spacing:.08em">Level '+l+' selesai</div><div class="nilai">'+G.skor+'</div><div>dari 100 poin &middot; '+G.salah+' kesalahan &middot; '+bintangTxt(G.skor)+'</div><div style="margin-top:6px">'+esc(G.ID.nama)+' (kelas '+esc(G.ID.kelas)+')</div><div class="hint" style="margin-top:6px">Foto layar ini dan tunjukkan ke guru. Skor terbaik level ini: '+G.PR[l].skor+'. Kemajuanmu sudah tersimpan.</div>'
+   +'<div class="aks"><button class="btn alt" type="button" onclick="mainLv('+l+')">Main lagi level ini</button>'+(l<MAXLV?'<button class="btn" type="button" onclick="mainLv('+(l+1)+')">Lanjut ke Level '+(l+1)+' &rarr;</button>':'')+'</div>'+(l>=MAXLV?'<p style="margin:10px 0 0;font-weight:700">Selamat, semua level sudah selesai!</p>':'')+'</div>';
+  rekap(); tabs(); window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- input garis (tarik atau ketuk) ---------- */
+document.addEventListener("pointerdown",function(e){var n=e.target.closest&&e.target.closest(".node.l"); if(!n||terkunci("l",+n.dataset.i))return; G.sel=+n.dataset.i; G.drag=true; G.mouse=null; draw();});
+document.addEventListener("pointermove",function(e){if(!G.drag||!$("arena"))return;var a=$("arena").getBoundingClientRect();G.mouse={x:e.clientX-a.left,y:e.clientY-a.top};draw()});
+document.addEventListener("pointerup",function(e){
+  if(!G.drag) return; G.drag=false; var el=document.elementFromPoint(e.clientX,e.clientY), r=el&&el.closest&&el.closest(".node.r");
+  if(r&&G.sel!=null){connect(G.sel,+r.dataset.i);G.sel=null}
+  G.mouse=null; draw();
+});
+document.addEventListener("click",function(e){var r=e.target.closest&&e.target.closest(".node.r"); if(r&&G.sel!=null&&!G.drag){connect(G.sel,+r.dataset.i);G.sel=null;draw()}});
+window.addEventListener("resize",draw);
+
+/* ---------- mulai ---------- */
+try{var sv=JSON.parse(localStorage.getItem(SK+"id")||"null");if(sv){$("nama").value=sv.nama||"";$("kelas").value=sv.kelas||""}}catch(e){}
+$("mulai").onclick=function(){
+  var n=$("nama").value.trim().replace(/\s+/g," "), k=$("kelas").value.trim().replace(",",".");
+  if(!n){$("err").textContent="Nama wajib diisi.";return}
+  if(!/^\d\.\d{1,2}$/.test(k)){$("err").textContent="Tulis kelas seperti 7.1 (angka, titik, angka).";return}
+  $("err").textContent=""; G.ID={nama:n,kelas:k}; try{localStorage.setItem(SK+"id",JSON.stringify(G.ID))}catch(e){}
+  muat(); $("start").style.display="none"; $("game").style.display="block"; rekap(); pengingat();
+};
+</script>
+</body>
+</html>
