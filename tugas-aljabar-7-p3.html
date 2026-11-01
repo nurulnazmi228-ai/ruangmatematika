@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tugas Penjumlahan dan Pengurangan Bentuk Aljabar | Ruang Matematika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ec;--grid:rgba(31,111,92,.08);--card:#fff;--ink:#17261f;--mute:#5d6b64;--line:#dcd8c9;--hero:#0f3d33;--chalk:#f4f1e6;--accent:#f2b134;--main:#1f6f5c;--soft:#e9f2ee;--paper:#fffaf0;--ok:#1b7f4b;--okbg:#e4f5ea;--bad:#b3261e;--badbg:#fdeceb;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--paper:#1d2a24;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d}}
+:root[data-theme="dark"]{--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--paper:#1d2a24;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"DM Sans",system-ui,"Segoe UI",Arial,sans-serif;line-height:1.6;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.2}
+header{background:var(--hero);color:var(--chalk);border-radius:0 0 28px 28px;padding:18px 0 28px}
+header a{color:var(--accent);text-decoration:none;font-weight:700;font-size:.92rem;margin-right:14px}
+header h1{font-size:clamp(1.5rem,5vw,2.2rem);margin:14px 0 6px}header p{margin:0;color:rgba(244,241,230,.85)}
+textarea{width:100%;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;margin-top:6px}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:14px 0}
+.lbl{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+label.f{display:block;font-weight:700;font-size:.88rem;margin:10px 0 3px}
+input[type=text]{width:100%;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:1.05rem}
+input:focus-visible,.btn:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+input.ok{border-color:var(--ok);background:var(--okbg)}input.no{border-color:var(--bad);background:var(--badbg)}
+.btn{font:inherit;font-weight:700;background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 20px;cursor:pointer}.btn.alt{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+.link{background:none;border:0;color:var(--main);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:8px}
+.hint{font-size:.86rem;color:var(--mute)}.pesan{color:var(--bad);font-weight:700;margin:8px 0 0}
+.mat{font-family:"Cambria Math",Cambria,Georgia,serif;font-weight:700}
+.ing{background:var(--paper);border-left:6px solid var(--accent)}.ing summary{cursor:pointer;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:1.1rem}.ing ul{margin:8px 0 0;padding-left:20px}.ing li{margin-bottom:6px}
+.q p{margin:0 0 8px}.q .no{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.fb{margin-top:8px;padding:9px 12px;border-radius:10px;font-size:.93rem}.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--badbg);color:var(--bad)}.fb span{color:var(--ink)}
+.banner{background:var(--soft);border:1.5px solid var(--main);border-radius:16px;padding:14px 18px;margin:14px 0}.banner .nilai{font-family:Fraunces,Georgia,serif;font-size:2.4rem;font-weight:800;color:var(--main);line-height:1}
+.ke{display:inline-block;background:var(--accent);color:#2a1f00;font-weight:800;border-radius:999px;padding:3px 14px;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+.rekap{margin:14px 0 0;font-size:.9rem;color:var(--mute)}.rekap b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="index.html">&larr; Beranda</a><a href="materi-aljabar-7.html#p3">Materi Pertemuan 3</a><h1>Penjumlahan dan Pengurangan Bentuk Aljabar</h1><p>Tugas Kelas 7. Baca pengingat, kerjakan tiga level, lalu kirim untuk melihat nilai dan koreksi.</p></div></header>
+<main class="wrap">
+ <section class="sec" id="start">
+  <h2 style="font-size:1.2rem">Isi identitas dulu</h2>
+  <label class="f" for="nama">Nama</label><input type="text" id="nama" autocomplete="off">
+  <label class="f" for="kelas">Kelas</label><input type="text" id="kelas" placeholder="Contoh: 7.1" autocomplete="off">
+  <div class="pesan" id="err"></div>
+  <p style="margin-bottom:0"><button class="btn" id="mulai" type="button">Mulai</button></p>
+ </section>
+ <div id="app" style="display:none">
+  <p class="rekap" id="rekap"></p>
+  <div id="riwayat"></div>
+  <div id="tugas"></div>
+ </div>
+</main>
+
+<script>
+var BOBOT=[0.3,0.4,0.3], JUMLAH=[6,6,4], NAMA=["Level 1 · Dasar","Level 2 · Menengah","Level 3 · Soal cerita"];
+var $=function(i){return document.getElementById(i)}, SK="tugas-aljabar7-p3:", ID=null, N=1, H=[], RG=null, S=[];
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function rnd(n){return Math.floor(RG()*n)}function pick(a){return a[rnd(a.length)]}function kk(lo,hi){return lo+rnd(hi-lo+1)}function sg(c){return rnd(2)?c:-c}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+/* ---------- aljabar kecil ---------- */
+function fn(n){return n<0?"−"+fn(-n):(n>=1000?String(n).replace(/\B(?=(\d{3})+(?!\d))/g,"."):String(n))}
+function tm(t){if(t.s==="")return fn(t.c);return t.c===1?t.s:t.c===-1?"−"+t.s:fn(t.c)+t.s}
+function gb(l){return l.length?l.map(function(x,i){return i===0?tm(x):(x.c<0?" − "+tm({s:x.s,c:-x.c}):" + "+tm(x))}).join(""):"0"}
+function gp(l){return "("+gb(l)+")"}
+function tambah(A,B,m){var r={};A.forEach(function(t){r[t.s]=(r[t.s]||0)+t.c});B.forEach(function(t){r[t.s]=(r[t.s]||0)+m*t.c});return r}
+function urut(r,v){var o=[];v.concat([""]).forEach(function(s){if(r[s])o.push({s:s,c:r[s]})});return o}
+function ex(v,kon,neg){var o=v.map(function(s){var c=kk(1,9);return {s:s,c:neg?sg(c):c}});if(kon){var c=kk(1,9);o.push({s:"",c:neg?sg(c):c})}return o}
+function bentuk(q,A,B,m,v,tip,jenis){
+  var r=urut(tambah(A,B,m),v);
+  return {q:q,a:gb(r),p:tip,ev:{A:A,B:B,m:m},jenis:jenis||"isi"};
+}
+function ops(m){return m>0?" + ":" − "}
+function tulis(v){return v}
+/* ---------- pembuat soal ---------- */
+function level1(i){
+  var V=["x","y","a","b","m","n","p"],v=pick(V),w=pick(V.filter(function(z){return z!==v})),c1,c2,k1,k2,d1,d2,A,B;
+  if(i===0){c1=kk(2,9);c2=kk(2,9);A=[{s:v,c:c1}];B=[{s:v,c:c2}];return bentuk("Hitung <b class='mat'>"+gb(A)+" + "+gb(B)+"</b>.",A,B,1,[v],"Jumlahkan koefisien suku sejenis: "+c1+" + "+c2+" = "+(c1+c2)+".")}
+  if(i===1){c1=kk(5,9);c2=kk(1,4);A=[{s:v,c:c1}];B=[{s:v,c:c2}];return bentuk("Hitung <b class='mat'>"+gb(A)+" − "+gb(B)+"</b>.",A,B,-1,[v],"Kurangkan koefisiennya: "+c1+" − "+c2+" = "+(c1-c2)+".")}
+  if(i===2){c1=kk(1,9);c2=kk(1,9);k1=kk(1,9);k2=kk(1,9);A=[{s:v,c:c1},{s:"",c:k1}];B=[{s:v,c:c2},{s:"",c:k2}];return bentuk("Hitung <b class='mat'>"+gp(A)+" + "+gp(B)+"</b>.",A,B,1,[v],"Gabungkan suku "+v+" dengan suku "+v+", dan konstanta dengan konstanta.")}
+  if(i===3){c1=kk(5,9);c2=kk(1,4);k1=kk(1,9);k2=kk(1,9);A=[{s:v,c:c1},{s:"",c:k1}];B=[{s:v,c:c2},{s:"",c:k2}];return bentuk("Hitung <b class='mat'>"+gp(A)+" − "+gp(B)+"</b>.",A,B,-1,[v],"Ubah tanda semua suku di kurung kedua, lalu gabungkan. Perhatikan konstanta: "+k1+" − "+k2+" = "+(k1-k2)+".")}
+  if(i===4){A=[{s:v,c:kk(1,9)},{s:w,c:kk(1,9)}];B=[{s:v,c:kk(1,9)},{s:w,c:kk(1,9)}];return bentuk("Hitung <b class='mat'>"+gp(A)+" + "+gp(B)+"</b>.",A,B,1,[v,w],"Jumlahkan suku "+v+" dengan suku "+v+", dan suku "+w+" dengan suku "+w+".")}
+  A=[{s:v,c:kk(5,9)},{s:w,c:kk(5,9)}];B=[{s:v,c:kk(1,4)},{s:w,c:kk(1,4)}];return bentuk("Hitung <b class='mat'>"+gp(A)+" − "+gp(B)+"</b>.",A,B,-1,[v,w],"Kurangkan koefisien suku sejenis satu per satu: suku "+v+" dengan suku "+v+", suku "+w+" dengan suku "+w+".")
+}
+function level2(i){
+  var V=["x","y","a","b","m","n","p"],v=pick(V),w=pick(V.filter(function(z){return z!==v})),A,B,C,s,r,u=0;
+  do{ u++;
+   if(i===0){A=ex([v,w],1,1);B=ex([v,w],1,1);s=bentuk("Hitung <b class='mat'>"+gp(A)+" + "+gp(B)+"</b>.",A,B,1,[v,w],"Perhatikan tanda tiap suku, lalu gabungkan suku sejenis.")}
+   else if(i===1){A=ex([v,w],1,1);B=ex([v,w],1,1);s=bentuk("Hitung <b class='mat'>"+gp(A)+" − "+gp(B)+"</b>.",A,B,-1,[v,w],"Ubah tanda semua suku di kurung kedua (plus jadi minus, minus jadi plus), baru gabungkan.")}
+   else if(i===2){A=ex([v],1,1);B=ex([v],1,1);s=bentuk("Kurangkan <b class='mat'>"+gp(B)+"</b> dari <b class='mat'>"+gp(A)+"</b>.",A,B,-1,[v],"“Kurangkan B dari A” berarti A − B, bukan B − A.")}
+   else if(i===3){A=ex([v],1,1);B=ex([v],1,1);C=ex([v],1,1);var r1=tambah(A,B,1);s={q:"Hitung <b class='mat'>"+gp(A)+" + "+gp(B)+" − "+gp(C)+"</b>.",a:gb(urut(tambah(Object.keys(r1).map(function(k){return {s:k,c:r1[k]}}),C,-1),[v])),p:"Kerjakan dari kiri: jumlahkan dua kurung pertama, lalu kurangkan kurung ketiga dengan mengubah tandanya.",ev:{A:A,B:B,C:C},jenis:"isi"}}
+   else if(i===4){A=ex([v,w],1,1);B=ex([v,w],1,1);B[1].c=-A[1].c;s=bentuk("Hitung <b class='mat'>"+gp(A)+" + "+gp(B)+"</b>.",A,B,1,[v,w],"Ada suku yang saling menghilangkan karena jumlahnya 0, jadi suku itu tidak ditulis lagi.")}
+   else {A=ex([v,w],1,1);B=ex([v,w],1,1).map(function(t){return {s:t.s,c:-Math.abs(t.c)}});s=bentuk("Hitung <b class='mat'>"+gp(A)+" − "+gp(B)+"</b>.",A,B,-1,[v,w],"Mengurangkan suku bertanda minus sama dengan menambahkan suku itu: −(−3x) = +3x.")}
+  }while(s.a==="0"&&u<20);
+  return s;
+}
+function level3(i){
+  var A,B,C,s,k1,k2,k3,c1,c2,c3,d1,d2;
+  if(i===0){c1=kk(2,6);d1=kk(1,5);c2=kk(2,6);d2=kk(1,5);A=[{s:"j",c:c1},{s:"a",c:d1}];B=[{s:"j",c:c2},{s:"a",c:d2}];
+    return bentuk("Satu kotak jeruk beratnya <b>j</b> kg dan satu kotak apel beratnya <b>a</b> kg. Hari Senin Pak Anton memanen "+c1+" kotak jeruk dan "+d1+" kotak apel. Hari Selasa ia memanen "+c2+" kotak jeruk dan "+d2+" kotak apel. Tulis bentuk aljabar <b>total berat panen</b> dua hari (dalam kg).",A,B,1,["j","a"],"Senin: "+gb(A)+" kg. Selasa: "+gb(B)+" kg. Jumlahkan jeruk dengan jeruk dan apel dengan apel.")}
+  if(i===1){c1=kk(5,9);d1=kk(5,9);c2=kk(1,4);d2=kk(1,4);A=[{s:"m",c:c1},{s:"p",c:d1}];B=[{s:"m",c:c2},{s:"p",c:d2}];
+    return bentuk("Satu keranjang mangga beratnya <b>m</b> kg dan satu keranjang pisang beratnya <b>p</b> kg. Pagi hari toko Bu Rina memiliki "+c1+" keranjang mangga dan "+d1+" keranjang pisang. Hari ini terjual "+c2+" keranjang mangga dan "+d2+" keranjang pisang. Tulis bentuk aljabar <b>berat sisa stok</b> (dalam kg).",A,B,-1,["m","p"],"Stok: "+gb(A)+" kg. Terjual: "+gb(B)+" kg. Sisa = stok − terjual.")}
+  if(i===2){c1=kk(2,4);c2=kk(2,4);c3=kk(1,c1+c2-1);k1=kk(2,6)*1000;k2=kk(2,6)*1000;k3=kk(1,Math.floor((k1+k2)/1000)-1)*1000;
+    A=[{s:"t",c:c1},{s:"",c:k1}];B=[{s:"t",c:c2},{s:"",c:k2}];C=[{s:"t",c:c3},{s:"",c:k3}];var r1=tambah(A,B,1),tot=Object.keys(r1).map(function(k){return {s:k,c:r1[k]}});
+    return {q:"Dina menabung <b>t</b> rupiah setiap minggu. Bulan lalu ia menabung selama "+c1+" minggu dan mendapat tambahan Rp"+fn(k1)+". Bulan ini ia menabung selama "+c2+" minggu dan mendapat tambahan Rp"+fn(k2)+". Ia lalu memakai uang tabungan sebesar "+c3+" minggu ditambah Rp"+fn(k3)+" untuk membeli buku. Tulis bentuk aljabar <b>sisa tabungan Dina</b> (dalam rupiah).",a:gb(urut(tambah(tot,C,-1),["t"])),p:"Tabungan bulan lalu "+gb(A)+" ditambah bulan ini "+gb(B)+", lalu dikurangi pemakaian "+gb(C)+".",ev:{A:A,B:B,C:C},jenis:"isi"}}
+  c1=kk(2,5);c2=kk(2,5);c3=kk(2,5);k1=kk(1,6);k2=kk(1,6);k3=kk(1,6);A=[{s:"x",c:c1},{s:"",c:k1}];B=[{s:"x",c:c2},{s:"",c:k2}];C=[{s:"x",c:c3},{s:"",c:k3}];var r2=tambah(A,B,1),t2=Object.keys(r2).map(function(k){return {s:k,c:r2[k]}});
+  return {q:"Sebuah taman berbentuk segitiga. Panjang sisi pertamanya "+gp(A)+" meter, sisi kedua "+gp(B)+" meter, dan sisi ketiga "+gp(C)+" meter. Tulis bentuk aljabar <b>keliling taman</b> (dalam meter).",a:gb(urut(tambah(t2,C,1),["x"])),p:"Keliling adalah jumlah ketiga sisi: "+gp(A)+" + "+gp(B)+" + "+gp(C)+".",ev:{A:A,B:B,C:C,tiga:1},jenis:"isi"};
+}
+function susun(){
+  S=[];
+  for(var i=0;i<6;i++)S.push({lv:0,s:level1(i)});
+  for(i=0;i<6;i++)S.push({lv:1,s:level2(i)});
+  for(i=0;i<4;i++)S.push({lv:2,s:level3(i)});
+}
+/* ---------- pemeriksa jawaban (toleran terhadap salah ketik sederhana) ---------- */
+function bersih(s){
+  s=String(s).toLowerCase().replace(/[−–—‑]/g,"-").replace(/[×·]/g,"*").replace(/\s+/g,"");
+  s=s.replace(/^(jawaban|jawab)[:=]?/,"").replace(/([a-z])\^2/g,"$1$1").replace(/([a-z])²/g,"$1$1");
+  s=s.replace(/rp\.?/g,"").replace(/(kg|rupiah|meter|cm)/g,"");
+  s=s.replace(/(\d)[.,](?=\d{3}(\D|$))/g,"$1").replace(/,/g,".");
+  s=s.replace(/[.;:!?]+$/,"").replace(/[+\-*]+$/,"");
+  var o=(s.match(/\(/g)||[]).length,c=(s.match(/\)/g)||[]).length;
+  while(c>o&&s[s.length-1]===")"){s=s.slice(0,-1);c--} while(o>c){s+=")";c++}
+  return s;
+}
+function pAdd(a,b,m){var r={},k;for(k in a)r[k]=(r[k]||0)+a[k];for(k in b)r[k]=(r[k]||0)+m*b[k];return r}
+function pMul(a,b){var r={},x,y,k;for(x in a)for(y in b){k=(x+y).split("").sort().join("");r[k]=(r[k]||0)+a[x]*b[y]}return r}
+function pBaca(s){
+  s=bersih(s); if(!s) return null; var i=0;
+  function faktor(){
+    var neg=false,r; while(s[i]==="+"||s[i]==="-"){if(s[i]==="-")neg=!neg;i++}
+    if(s[i]==="("){i++;r=ekspr();if(!r||s[i]!==")")return null;i++}
+    else if(/[0-9.]/.test(s[i]||"")){var m=/^(\d+\.?\d*|\.\d+)/.exec(s.slice(i));if(!m)return null;i+=m[0].length;r={"":parseFloat(m[0])}}
+    else if(/[a-z]/.test(s[i]||"")){r={};r[s[i]]=1;i++}
+    else return null;
+    return neg?pMul(r,{"":-1}):r;
+  }
+  function suku(){
+    var r=faktor(); if(!r) return null;
+    while(i<s.length&&(s[i]==="*"||s[i]==="("||/[a-z0-9.]/.test(s[i]))){if(s[i]==="*")i++;var f=faktor();if(!f)return null;r=pMul(r,f)}
+    return r;
+  }
+  function ekspr(){
+    var r=suku(); if(!r) return null;
+    while(i<s.length&&(s[i]==="+"||s[i]==="-")){var o=s[i++]==="+"?1:-1,t=suku();if(!t)return null;r=pAdd(r,t,o)}
+    return r;
+  }
+  var r=ekspr(); if(!r||i<s.length) return null;
+  for(var k in r) if(Math.abs(r[k])<1e-9) delete r[k];
+  return r;
+}
+function samaM(a,b){var ka=Object.keys(a),kb=Object.keys(b);return ka.length===kb.length&&ka.every(function(k){return b.hasOwnProperty(k)&&Math.abs(a[k]-b[k])<1e-9})}
+function akhir(v){var p=String(v).split("=").map(function(x){return x.trim()}).filter(Boolean);return p.length?p[p.length-1]:""}
+function sama(a,b){var x=pBaca(akhir(a)),y=pBaca(b);return !!x&&!!y&&samaM(x,y)}
+function valid(v){return !!pBaca(akhir(v))}
+function koreksiCara(txt,jawab){
+  var seg=String(txt).split(/\n|=/).map(function(x){return x.trim()}).filter(Boolean); if(!seg.length) return "";
+  var T=pBaca(jawab),bad=-1,kind="";
+  var rows=seg.map(function(x,k){var m=pBaca(x),st=!m?"?":samaM(m,T)?"ok":"no";if(st!=="ok"&&bad<0){bad=k;kind=st}
+    return '<div>'+(st==="ok"?"✓":st==="no"?"✗":"?")+' <span class="mat">'+esc(x)+'</span></div>'}).join("");
+  var ket=bad<0?"Caramu runtut: setiap langkah bernilai sama dengan soal.":kind==="?"?"Langkah ke-"+(bad+1)+" belum bisa dibaca. Periksa tanda kurung dan penulisannya.":"Langkah ke-"+(bad+1)+" mulai berbeda nilainya dari soal. Periksa tanda dan hasil menggabungkan suku sejenis.";
+  return '<div class="fb" style="background:var(--soft);color:var(--ink)"><b>Koreksi caramu</b>'+rows+'<span style="display:block;margin-top:4px">'+ket+' Nilai tetap ditentukan oleh jawaban akhir.</span></div>';
+}
+
+/* ---------- penyimpanan ---------- */
+function kid(){return ID.nama.toLowerCase().replace(/\s+/g," ")+"|"+ID.kelas}
+function get(k){try{return JSON.parse(localStorage.getItem(SK+k+":"+kid())||"null")}catch(e){return null}}
+function put(k,v){try{localStorage.setItem(SK+k+":"+kid(),JSON.stringify(v))}catch(e){}}
+function lamaTxt(d){var m=Math.floor(d/60),s=d%60;return (m?m+" menit ":"")+s+" detik"}
+
+/* ---------- tampilan ---------- */
+function tabelRiwayat(){
+  if(!H.length) return "";
+  return '<div class="sec"><div class="lbl">Riwayat pengerjaan</div><table><tr><th>Ke-</th><th>Waktu kirim</th><th>Nilai</th><th>Lama</th></tr>'+H.map(function(h){return '<tr><td>'+h.n+'</td><td>'+esc(h.waktu)+'</td><td><b>'+h.nilai+'</b></td><td>'+lamaTxt(h.lama)+'</td></tr>'}).join("")+'</table></div>';
+}
+function rekap(){
+  $("rekap").innerHTML="<b>"+esc(ID.nama)+"</b> (kelas "+esc(ID.kelas)+")"+'<button class="link" id="ganti" type="button">Ganti siswa</button>';
+  $("ganti").onclick=function(){$("app").style.display="none";$("start").style.display="block"};
+}
+var PENG='<details class="sec ing" open><summary>Pengingat materi</summary><ul>'
+ +'<li><b>Suku sejenis</b> punya variabel yang sama. Hanya suku sejenis yang boleh dijumlahkan atau dikurangkan, dan konstanta hanya dengan konstanta.</li>'
+ +'<li><b>Penjumlahan:</b> jumlahkan koefisien suku sejenis, variabelnya tetap.<br><span class="mat">(7x − 3y + 4) + (2x + 5y − 9) = 9x + 2y − 5</span></li>'
+ +'<li><b>Pengurangan:</b> ubah tanda semua suku di kurung kedua, lalu gabungkan.<br><span class="mat">(8p + 3) − (3p − 2) = 8p + 3 − 3p + 2 = 5p + 5</span></li>'
+ +'<li>“Kurangkan <b>B</b> dari <b>A</b>” berarti <span class="mat">A − B</span>.</li>'
+ +'<li><b>Soal cerita:</b> baca teliti, tentukan apa arti huruf yang dipakai, hitung banyaknya tiap benda, tulis bentuk aljabarnya, lalu sederhanakan.</li>'
+ +'<li>Tulis <b>jawaban akhir</b> di kotak jawaban, misalnya <span class="mat">8a + 6b</span>, <span class="mat">−3x + 5</span>, atau <span class="mat">12.000 + 5t</span>. Urutan suku bebas, huruf besar atau kecil tidak masalah, dan salah ketik sederhana seperti spasi atau titik di akhir tidak mengurangi nilai.</li>'
+ +'<li><b>Cara pengerjaan boleh ditulis</b> (tidak wajib). Tulis tiap langkah sebagai bentuk yang nilainya sama, dihubungkan tanda sama dengan atau baris baru, misalnya <span class="mat">(8p + 3) − (3p − 2) = 8p + 3 − 3p + 2 = 5p + 5</span>. Caramu ikut dikoreksi, tetapi <b>nilai ditentukan oleh jawaban akhir</b>: kalau jawaban akhir benar, soal itu benar, dengan atau tanpa cara.</li></ul></details>';
+function render(){
+  $("riwayat").innerHTML=tabelRiwayat();
+  var d=get("d:"+N)||{}, h='<div class="sec"><span class="ke">Pengerjaan ke-'+N+'</span><div class="hint">Setiap pengerjaan memakai soal yang berbeda. Nilai dan nomor pengerjaan akan tampil setelah kamu mengirim.</div></div>'+PENG, no=0;
+  [0,1,2].forEach(function(l){
+    h+='<div class="sec"><div class="lbl">'+NAMA[l]+' &middot; '+JUMLAH[l]+' soal &middot; bobot '+Math.round(BOBOT[l]*100)+'%</div></div>';
+    S.forEach(function(x,i){ if(x.lv!==l) return; no++;
+      h+='<div class="sec q"><div class="no">Soal '+no+'</div><p>'+x.s.q+'</p><input type="text" id="j'+i+'" data-i="'+i+'" autocomplete="off" aria-label="Jawaban soal '+no+'" placeholder="Tulis jawaban akhirmu"><details style="margin-top:8px"><summary class="hint" style="cursor:pointer">Tulis caranya (boleh dikosongkan)</summary><textarea id="c'+i+'" data-c="'+i+'" rows="3" aria-label="Cara pengerjaan soal '+no+'" placeholder="Contoh:&#10;(8p + 3) − (3p − 2)&#10;= 8p + 3 − 3p + 2&#10;= 5p + 5"></textarea></details><div id="f'+i+'"></div></div>'; });
+  });
+  h+='<div class="sec" id="aksi"><button class="btn" id="kirim" type="button">Kirim jawaban</button><div class="pesan" id="pesan"></div></div><div id="hasil"></div>';
+  $("tugas").innerHTML=h;
+  function kd(e){return e.dataset.i!==undefined?e.dataset.i:"c"+e.dataset.c}
+  document.querySelectorAll("[data-i],[data-c]").forEach(function(e){e.value=d[kd(e)]||"";if(e.dataset.c!==undefined&&e.value)e.parentNode.open=true;e.oninput=function(){var o={};document.querySelectorAll("[data-i],[data-c]").forEach(function(x){o[kd(x)]=x.value});put("d:"+N,o)}});
+  if(!get("t0:"+N)) put("t0:"+N,Date.now());
+  $("kirim").onclick=kirim;
+}
+function kirim(){
+  var kosong=S.filter(function(x,i){return $("j"+i).value.trim()===""}).length, salahTulis=S.filter(function(x,i){var v=$("j"+i).value.trim();return v!==""&&!valid(v)}).length;
+  if(salahTulis){$("pesan").textContent="Ada "+salahTulis+" jawaban yang penulisannya belum bisa dibaca (contoh: 8a + 6b atau −3x + 5). Periksa tanda kurung dan hurufnya.";return}
+  if(!confirm(kosong?"Masih ada "+kosong+" soal kosong. Tetap kirim? Jawaban akan dikunci.":"Kirim sekarang? Jawaban akan dikunci.")) return;
+  var b=[0,0,0], ok=[];
+  S.forEach(function(x,i){var v=$("j"+i).value.trim(),o=v!==""&&sama(v,x.s.a);ok.push(o);if(o)b[x.lv]++});
+  var nilai=Math.round(100*(BOBOT[0]*b[0]/JUMLAH[0]+BOBOT[1]*b[1]/JUMLAH[1]+BOBOT[2]*b[2]/JUMLAH[2]));
+  var lama=Math.max(1,Math.round((Date.now()-(get("t0:"+N)||Date.now()))/1000)), waktu=new Date().toLocaleString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  var rec={n:N,waktu:waktu,nilai:nilai,per:b,lama:lama}; H.push(rec); put("h",H);
+  S.forEach(function(x,i){var e=$("j"+i);e.disabled=true;e.className=ok[i]?"ok":"no";$("f"+i).innerHTML='<div class="fb '+(ok[i]?"ok":"no")+'"><b>'+(ok[i]?"Benar.":"Belum tepat.")+'</b> <span>'+(ok[i]?"":"Jawaban yang benar: <b class='mat'>"+x.s.a+"</b>. ")+x.s.p+'</span></div>'+koreksiCara($("c"+i).value,x.s.a);$("c"+i).disabled=true;if($("c"+i).value.trim())$("c"+i).parentNode.open=true});
+  $("aksi").style.display="none";
+  $("hasil").innerHTML='<div class="banner"><span class="ke">Pengerjaan ke-'+N+'</span><div class="nilai">'+nilai+'</div><div>'+esc(ID.nama)+' (kelas '+esc(ID.kelas)+')</div><div class="hint">'+NAMA.map(function(n,l){return n+": "+b[l]+" dari "+JUMLAH[l]}).join(" &middot; ")+'<br>Dikirim: '+esc(waktu)+' &middot; Lama mengerjakan: '+lamaTxt(lama)+'</div><div class="hint" style="margin-top:6px">Foto layar ini dan tunjukkan ke guru. Nomor pengerjaan dan riwayat nilai ikut tercatat.</div><p style="margin:10px 0 0"><button class="btn alt" type="button" onclick="ulangi()">Kerjakan lagi (pengerjaan ke-'+(N+1)+', soal baru)</button></p></div>';
+  $("riwayat").innerHTML=tabelRiwayat(); rekap(); $("hasil").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function mulaiAttempt(){N=H.length+1; RG=mulberry(hash(kid()+"|"+N)); susun(); render(); window.scrollTo({top:0})}
+function ulangi(){mulaiAttempt()}
+try{var sv=JSON.parse(localStorage.getItem(SK+"id")||"null");if(sv){$("nama").value=sv.nama||"";$("kelas").value=sv.kelas||""}}catch(e){}
+$("mulai").onclick=function(){
+  var n=$("nama").value.trim().replace(/\s+/g," "), k=$("kelas").value.trim().replace(",",".");
+  if(!n){$("err").textContent="Nama wajib diisi.";return}
+  if(!/^\d\.\d{1,2}$/.test(k)){$("err").textContent="Tulis kelas seperti 7.1 (angka, titik, angka).";return}
+  $("err").textContent=""; ID={nama:n,kelas:k}; try{localStorage.setItem(SK+"id",JSON.stringify(ID))}catch(e){}
+  H=get("h")||[]; $("start").style.display="none"; $("app").style.display="block"; rekap();
+  var draf=get("d:"+(H.length+1));
+  if(H.length&&!draf){ N=H.length+1; $("riwayat").innerHTML=tabelRiwayat(); $("tugas").innerHTML='<div class="sec"><p style="margin:0 0 10px">Kamu sudah mengerjakan tugas ini sebanyak <b>'+H.length+' kali</b>. Nilai terakhir: <b>'+H[H.length-1].nilai+'</b>.</p><button class="btn" type="button" onclick="mulaiAttempt()">Mulai pengerjaan ke-'+N+'</button></div>'; }
+  else mulaiAttempt();
+};
+</script>
+</body>
+</html>
