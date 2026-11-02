@@ -35,7 +35,7 @@ table.tb tr.hit td{background:var(--hit);font-weight:700}
 .scroll{overflow-x:auto}
 label.f{display:block;font-weight:700;font-size:.88rem;margin:10px 0 3px}
 input[type=text],input[type=number]{padding:8px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:1.05rem;width:100%}
-input.s{width:84px;text-align:center}input.ok{border-color:var(--ok);background:var(--okbg)}input.no{border-color:var(--bad);background:var(--badbg)}
+input.s{width:84px;text-align:center}input.w{width:200px;max-width:100%;text-align:center}input.ok{border-color:var(--ok);background:var(--okbg)}input.no{border-color:var(--bad);background:var(--badbg)}
 .btn{font:inherit;font-weight:700;background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 20px;cursor:pointer}.btn.alt{background:transparent;color:var(--main);border:1.5px solid var(--main)}
 .link{background:none;border:0;color:var(--main);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:8px}
 .hint{font-size:.86rem;color:var(--mute)}.pesan{color:var(--bad);font-weight:700;margin:8px 0 0}
@@ -46,7 +46,7 @@ input.s{width:84px;text-align:center}input.ok{border-color:var(--ok);background:
 .rekap{margin:12px 0 0;font-size:.9rem;color:var(--mute)}.rekap b{color:var(--ink)}
 .wadah{border:2px dashed var(--line);background:transparent;text-align:center;padding:30px 18px}.wadah ul{display:inline-block;text-align:left;margin:8px 0 0}
 details>summary{cursor:pointer;font-weight:700}
-.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.row2{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 </style>
 </head>
 <body>
@@ -72,7 +72,7 @@ function frac(n,d){var g=gcd(n,d)||1;n/=g;d/=g;if(d<0){n=-n;d=-d}return d===1?m(
 
 /* ================= PERTEMUAN 1: MATERI ================= */
 var MATERI1=`
-<div class="sec"><div class="lbl">Pertemuan 1</div><h2>Menyelesaikan Persamaan Kuadrat dengan Pemfaktoran</h2><p class="hint" style="margin:8px 0 0"><b>Tujuan:</b> mengenali persamaan kuadrat, memakai tabel faktor untuk menemukan faktornya, dan menentukan akar-akarnya.</p></div>
+<div class="sec"><div class="lbl">Pertemuan 1</div><h2>Menyelesaikan Persamaan Kuadrat dengan Pemfaktoran</h2><p class="hint" style="margin:8px 0 0"><b>Tujuan:</b> mengenali persamaan kuadrat, memakai tabel faktor untuk menemukan faktornya, dan menentukan akar-akarnya. Untuk sekarang kita fokus pada persamaan dengan <b>a = 1</b>.</p></div>
 
 <div class="sec baca"><div class="lbl">Baca dulu &middot; Kebun Pak Budi</div>
 <p>Pak Budi ingin membuat kebun berbentuk persegi panjang dengan luas 28 m². Panjang kebun harus 3 m lebih panjang dari lebarnya. Jika lebarnya <b>x</b> meter, maka panjangnya (x + 3) meter, sehingga luasnya <span class="mat">x(x + 3) = 28</span>.</p>
@@ -107,15 +107,9 @@ var MATERI1=`
 <p>Baris yang jumlahnya −2 adalah p = −5 dan q = 3. Jadi <span class="mat">(x − 5)(x + 3) = 0</span>, maka <span class="mat">x = 5</span> atau <span class="mat">x = −3</span>.</p>
 <p class="hint">Petunjuk tanda: jika c positif, p dan q bertanda sama (sama dengan tanda b). Jika c negatif, p dan q bertanda berbeda.</p></div>
 
-<div class="sec"><h3>4. Jika a ≠ 1</h3>
-<p>Pakai <b>n = a × c</b> sebagai pengganti c pada tabel. Cari p dan q yang p × q = a × c dan p + q = b, lalu pecah suku tengah.</p>
-<p><b>Contoh:</b> <span class="mat">2x² + 7x + 3 = 0</span>. a × c = 6. Dari tabel faktor 6, pasangan yang berjumlah 7 adalah 1 dan 6.</p>
-<p class="mat" style="margin:0">2x² + 1x + 6x + 3 = 0<br>x(2x + 1) + 3(2x + 1) = 0<br>(2x + 1)(x + 3) = 0</p>
-<p style="margin-top:6px">Maka <span class="mat">x = −1/2</span> atau <span class="mat">x = −3</span>.</p></div>
-
 <div class="sec"><h3>Coba sendiri: pencari faktor</h3>
-<p class="hint">Masukkan a, b, dan c dari persamaan <span class="mat">ax² + bx + c = 0</span>, lalu lihat tabelnya.</p>
-<div class="row3"><div><label class="f" for="wa">a</label><input type="number" id="wa" value="1"></div><div><label class="f" for="wb">b</label><input type="number" id="wb" value="7"></div><div><label class="f" for="wc">c</label><input type="number" id="wc" value="12"></div></div>
+<p class="hint">Masukkan b dan c dari persamaan <span class="mat">x² + bx + c = 0</span> (a = 1), lalu lihat tabelnya.</p>
+<div class="row2"><div><label class="f" for="wb">b</label><input type="number" id="wb" value="7"></div><div><label class="f" for="wc">c</label><input type="number" id="wc" value="12"></div></div>
 <p style="margin-top:10px"><button class="btn" type="button" onclick="cari()">Buat tabel</button></p><div id="hasilCari"></div></div>
 
 <div class="sec konsep"><h3>Kesalahan yang sering terjadi</h3>
@@ -128,14 +122,13 @@ var MATERI1=`
 <p><span class="mat">x² + 3x − 28 = 0</span>: b = 3, c = −28. Pasangan faktor −28 yang berjumlah 3 adalah p = 7 dan q = −4. Jadi <span class="mat">(x + 7)(x − 4) = 0</span>, maka x = −7 atau x = 4. Lebar tidak mungkin negatif, jadi <b>lebar kebun 4 m dan panjangnya 7 m</b>. Cek: 4 × 7 = 28.</p></div>
 `;
 function cari(){
-  var a=+$("wa").value,b=+$("wb").value,c=+$("wc").value,o=$("hasilCari");
-  if(!a||!Number.isInteger(a)||!Number.isInteger(b)||!Number.isInteger(c)||c===0){o.innerHTML='<p class="pesan">Isi a, b, c dengan bilangan bulat, a dan c tidak boleh 0.</p>';return}
-  var n=a*c,hit=pasangan(n).filter(function(r){return r[0]+r[1]===b})[0];
-  var h='<p><b class="mat">'+pers(a,b,c)+'</b>, dengan '+(a===1?'c = '+m(c):'a × c = '+m(n))+' dan b = '+m(b)+':</p>'+tabel(n,b,true);
-  if(!hit){h+='<p class="pesan">Tidak ada pasangan bilangan bulat dengan p × q = '+m(n)+' dan p + q = '+m(b)+'. Persamaan ini tidak bisa difaktorkan dengan cara ini.</p>'}
+  var b=+$("wb").value,c=+$("wc").value,o=$("hasilCari");
+  if(!Number.isInteger(b)||!Number.isInteger(c)||c===0){o.innerHTML='<p class="pesan">Isi b dan c dengan bilangan bulat, c tidak boleh 0.</p>';return}
+  var hit=pasangan(c).filter(function(r){return r[0]+r[1]===b})[0];
+  var h='<p><b class="mat">'+pers(1,b,c)+'</b>, dengan c = '+m(c)+' dan b = '+m(b)+':</p>'+tabel(c,b,true);
+  if(!hit){h+='<p class="pesan">Tidak ada pasangan bilangan bulat dengan p × q = '+m(c)+' dan p + q = '+m(b)+'. Persamaan ini tidak bisa difaktorkan dengan cara ini.</p>'}
   else{var p=hit[0],q=hit[1];
-    if(a===1)h+='<p>Pasangan yang tepat: p = '+m(p)+' dan q = '+m(q)+'. Jadi <span class="mat">'+fk(p)+fk(q)+' = 0</span>, maka <b>x = '+m(-p)+' atau x = '+m(-q)+'</b>.</p>';
-    else{var D=b*b-4*a*c,r=Math.sqrt(D);h+='<p>Pasangan yang tepat: '+m(p)+' dan '+m(q)+'. Akar-akarnya: <b>x = '+frac(-b+r,2*a)+' atau x = '+frac(-b-r,2*a)+'</b>.</p>'}}
+    h+='<p>Pasangan yang tepat: p = '+m(p)+' dan q = '+m(q)+'. Jadi <span class="mat">'+fk(p)+fk(q)+' = 0</span>, maka <b>x = '+m(-p)+' atau x = '+m(-q)+'</b>.</p>'}
   o.innerHTML=h;
 }
 
@@ -150,18 +143,11 @@ function ruas(cx,k){return (cx===1?"x":cx===-1?"−x":m(cx)+"x")+" "+(k<0?"−":
 function soalA1(pq,baku){
   var p=pq[0],q=pq[1],b=p+q,c=p*q,teks,pre="";
   if(baku){
-    teks=rnd(2)?"x² "+(b<0?"−":"+")+" "+lin(b)+" = "+m(-c):"x² = "+ruas(-b,-c);
+    teks=(baku===1||(baku===3&&rnd(2)))?"x² "+(b<0?"−":"+")+" "+lin(b)+" = "+m(-c):"x² = "+ruas(-b,-c);
     pre="Pindahkan semua suku ke satu ruas sehingga menjadi bentuk baku <b class='mat'>"+pers(1,b,c)+"</b>. ";
   } else teks=pers(1,b,c);
   return {tipe:"akar",q:"Tentukan akar-akar persamaan kuadrat <b class='mat'>"+teks+"</b> dengan pemfaktoran."+(baku?" (ubah ke bentuk baku dulu)":""),n:c,b:b,pq:[p,q],akar:[-p,-q],
     p:pre+"b = "+m(b)+" dan c = "+m(c)+". Dari tabel faktor "+m(c)+", pasangan yang jumlahnya "+m(b)+" adalah "+m(p)+" dan "+m(q)+". Jadi <b class='mat'>"+fk(p)+fk(q)+" = 0</b>, maka x = "+m(-p)+" atau x = "+m(-q)+".",eq:[1,b,c]};
-}
-function soalAa(){
-  var w=kk(2,3),v,z,u=0;
-  do{v=kk(1,6)*(rnd(2)?1:-1);z=kk(1,6)*(rnd(2)?1:-1);u++}while((v*w+z===0||z===v*w)&&u<80);
-  var a=w,b=z+v*w,c=v*z,p=v*w,q=z,sg=function(t){return (t<0?"−":"+")+" "+Math.abs(t)};
-  return {tipe:"akar",q:"Tentukan akar-akar persamaan kuadrat <b class='mat'>"+pers(a,b,c)+"</b>. (Pakai a × c = "+m(a*c)+" pada tabel faktor. Jika akarnya pecahan, tulis seperti −1/2.)",n:a*c,b:b,pq:[p,q],akar:[-v,-z/w],
-    p:"a × c = "+m(a*c)+" dan b = "+m(b)+". Pasangan faktor "+m(a*c)+" yang jumlahnya "+m(b)+" adalah "+m(p)+" dan "+m(q)+". Pecah suku tengah: "+a+"x² "+sg(p)+"x "+sg(q)+"x "+sg(c)+" = 0. Kelompokkan: "+a+"x"+fk(v)+" "+sg(z)+fk(v)+" = 0, sehingga <b class='mat'>"+fk(v)+"("+a+"x "+sg(z)+") = 0</b>. Maka x = "+m(-v)+" atau x = "+frac(-z,w)+".",eq:[a,b,c]};
 }
 function soalCerita(){
   var w=kk(2,9),k=kk(1,6),L=w*(w+k);
@@ -173,8 +159,9 @@ function susun(){
   S.push(soalA1(pilihPQ(1,1)));S.push(soalA1(pilihPQ(1,1)));
   S.push(soalA1(pilihPQ(-1,-1)));S.push(soalA1(pilihPQ(-1,-1)));
   S.push(soalA1(pilihPQ(1,-1)));S.push(soalA1(pilihPQ(-1,1)));
-  S.push(soalA1(pilihPQ(rnd(2)?1:-1,rnd(2)?1:-1),true));
-  S.push(soalAa());S.push(soalAa());
+  S.push(soalA1(pilihPQ(rnd(2)?1:-1,rnd(2)?1:-1),1));
+  S.push(soalA1(pilihPQ(rnd(2)?1:-1,rnd(2)?1:-1),2));
+  S.push(soalA1(pilihPQ(rnd(2)?1:-1,rnd(2)?1:-1),3));
   S.push(soalCerita());
 }
 function angka(s){
@@ -206,11 +193,11 @@ function mulaiTugas(){
 function mulaiAttempt(){N=H.length+1;RG=mulberry(hash(kid()+"|"+N));susun();renderSoal()}
 function renderSoal(){
   $("riwT").innerHTML=riwayat();var d=get("d:"+N)||{};
-  var h='<div class="sec"><span class="ke">Pengerjaan ke-'+N+'</span><div class="hint">Setiap pengerjaan memakai soal dengan angka berbeda. Tiap soal bernilai 10. Yang dinilai adalah akar-akarnya; kotak faktor hanya untuk membantu dan ikut dikoreksi.</div></div>';
+  var h='<div class="sec"><span class="ke">Pengerjaan ke-'+N+'</span><div class="hint">Setiap pengerjaan memakai soal dengan angka berbeda. Tiap soal bernilai 10. Isi dulu faktornya, misalnya (x + 1)(x − 2), lalu akar-akarnya, misalnya x₁ = −1 dan x₂ = 2. Yang dinilai adalah akar-akarnya; kotak faktor ikut dikoreksi sebagai bantuan.</div></div>';
   S.forEach(function(x,i){
     var cer=x.tipe==="cerita";
     h+='<div class="sec q"><div class="lbl">Soal '+(i+1)+'</div><p>'+x.q+'</p><details'+(i<2?' open':'')+'><summary>Tabel faktor untuk '+(cer?'c':(x.eq[0]===1?'c':'a × c'))+' = '+(cer?'−'+(-x.n)+' (setelah kamu membentuk persamaannya)':m(x.n))+'</summary><p class="hint" style="margin:6px 0 0">'+(cer?'Cari pasangan p dan q dengan p × q = c dan p + q = b.':'Cari baris yang p + q = '+m(x.b)+'.')+'</p>'+tabel(x.n,x.b,false)+'</details>'
-     +'<div class="ans"><span>Faktor: p =</span><input class="s" type="text" data-k="p'+i+'" id="p'+i+'" autocomplete="off" aria-label="p soal '+(i+1)+'"><span>q =</span><input class="s" type="text" data-k="q'+i+'" id="q'+i+'" autocomplete="off" aria-label="q soal '+(i+1)+'"></div>'
+     +'<div class="ans"><span>Faktor:</span><input class="w" type="text" data-k="p'+i+'" id="p'+i+'" placeholder="(x + 1)(x − 2)" autocomplete="off" aria-label="faktor soal '+(i+1)+'"></div>'
      +'<div class="ans">'+(cer?'<span>Lebar kebun x =</span><input class="s" type="text" data-k="a'+i+'" id="a'+i+'" autocomplete="off" aria-label="x soal '+(i+1)+'"><span>meter</span>':'<span>x₁ =</span><input class="s" type="text" data-k="a'+i+'" id="a'+i+'" autocomplete="off" aria-label="x1 soal '+(i+1)+'"><span>x₂ =</span><input class="s" type="text" data-k="b'+i+'" id="b'+i+'" autocomplete="off" aria-label="x2 soal '+(i+1)+'">')+'</div><div id="f'+i+'"></div></div>';
   });
   h+='<div class="sec" id="aksiT"><button class="btn" id="kirimT" type="button" onclick="kirim()">Kirim jawaban</button><div class="pesan" id="pesanT"></div></div><div id="hasilT"></div>';
@@ -221,20 +208,20 @@ function renderSoal(){
 function kirim(){
   var kosong=0,aneh=0;
   S.forEach(function(x,i){["a"+i].concat(x.tipe==="cerita"?[]:["b"+i]).forEach(function(k){var v=$(k).value.trim();if(v==="")kosong++;else if(angka(v)===null)aneh++})});
-  if(aneh){$("pesanT").textContent="Ada "+aneh+" jawaban akar yang penulisannya belum bisa dibaca. Tulis bilangan seperti −3, 4, atau −1/2.";return}
+  if(aneh){$("pesanT").textContent="Ada "+aneh+" jawaban akar yang penulisannya belum bisa dibaca. Tulis bilangan bulat seperti −3 atau 4.";return}
   if(!confirm(kosong?"Masih ada "+kosong+" kotak akar yang kosong. Tetap kirim? Jawaban akan dikunci.":"Kirim sekarang? Jawaban akan dikunci."))return;
   var benar=0;
   S.forEach(function(x,i){
     var ok,ket="";
     if(x.tipe==="cerita"){var v=angka($("a"+i).value);ok=v!==null&&Math.abs(v-x.akar[0])<1e-9}
     else{var v1=angka($("a"+i).value),v2=angka($("b"+i).value);ok=v1!==null&&v2!==null&&samaList([v1,v2],x.akar)}
-    var pv=angka($("p"+i).value),qv=angka($("q"+i).value),adaF=$("p"+i).value.trim()!==""||$("q"+i).value.trim()!=="";
-    var fok=pv!==null&&qv!==null&&samaList([pv,qv],x.pq);
+    var fv=faktorParse($("p"+i).value),adaF=$("p"+i).value.trim()!=="";
+    var fok=fv!==null&&samaList(fv,x.pq);
     if(ok)benar++;
-    ["p","q","a","b"].forEach(function(c){var e=$(c+i);if(e){e.disabled=true;e.className="s "+((c==="p"||c==="q")?(adaF?(fok?"ok":"no"):""):(ok?"ok":"no"))}});
+    ["p","a","b"].forEach(function(c){var e=$(c+i);if(e){e.disabled=true;e.className=(c==="p"?"w ":"s ")+(c==="p"?(adaF?(fok?"ok":"no"):""):(ok?"ok":"no"))}});
     var kuncit=x.tipe==="cerita"?"x = "+m(x.akar[0])+" meter":"x = "+fmtAkar(x.akar[0])+" atau x = "+fmtAkar(x.akar[1]);
     $("f"+i).innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?"Benar.":"Belum tepat.")+'</b> <span>'+(ok?"":"Jawaban yang benar: <b class='mat'>"+kuncit+"</b>. ")+x.p+'</span></div>'
-      +(adaF?'<div class="fb '+(fok?"ok":"no")+'" style="margin-top:6px"><b>Faktormu '+(fok?"benar":"belum tepat")+'.</b> <span>p dan q yang tepat: '+m(x.pq[0])+' dan '+m(x.pq[1])+' (p × q = '+m(x.n)+', p + q = '+m(x.b)+').</span></div>':'');
+      +(adaF?'<div class="fb '+(fok?"ok":"no")+'" style="margin-top:6px"><b>Faktormu '+(fok?"benar":"belum tepat")+'.</b> <span>Faktor yang tepat: <b class="mat">'+fk(x.pq[0])+fk(x.pq[1])+'</b> (p × q = '+m(x.n)+', p + q = '+m(x.b)+'). Urutan faktor boleh tertukar.</span></div>':'');
     sorot(i);
   });
   var nilai=benar*10,lama=Math.max(1,Math.round((Date.now()-(get("t0:"+N)||Date.now()))/1000)),waktu=new Date().toLocaleString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"});
@@ -243,11 +230,15 @@ function kirim(){
   $("hasilT").innerHTML='<div class="banner"><span class="ke">Pengerjaan ke-'+N+'</span><div class="nilai">'+nilai+'</div><div>'+esc(ID.nama)+' (kelas '+esc(ID.kelas)+') &middot; Benar '+benar+' dari 10</div><div class="hint">Dikirim: '+esc(waktu)+' &middot; Lama: '+lamaTxt(lama)+'</div><div class="hint" style="margin-top:6px">Foto layar ini dan tunjukkan ke guru. Nomor pengerjaan dan riwayat nilai ikut tercatat.</div><p style="margin:10px 0 0"><button class="btn alt" type="button" onclick="mulaiAttempt()">Kerjakan lagi (pengerjaan ke-'+(N+1)+', soal baru)</button></p></div>';
   $("riwT").innerHTML=riwayat();$("hasilT").scrollIntoView({behavior:"smooth",block:"start"});
 }
+function faktorParse(t){
+  var r=/^\(x([+-]\d+)\)\(x([+-]\d+)\)(?:=0)?$/.exec(String(t).toLowerCase().replace(/[−–—‑]/g,"-").replace(/\s/g,"").replace(/[×*·]/g,""));
+  return r?[parseInt(r[1],10),parseInt(r[2],10)]:null;
+}
 function fmtAkar(v){for(var d=1;d<=9;d++){var n=v*d;if(Math.abs(n-Math.round(n))<1e-9)return frac(Math.round(n),d)}return String(v)}
 function sorot(i){var x=S[i],det=$("f"+i).parentNode.querySelector("details");if(!det)return;det.open=true;det.querySelector("div.scroll").outerHTML=tabel(x.n,x.b,true)}
 
 function bukaTugas(){
-  var h='<div class="sec"><div class="lbl">Tugas Pertemuan 1</div><h2>10 soal pemfaktoran</h2><p class="hint" style="margin:6px 0 0">Kerjakan dengan tabel faktor. Soal 1-6 bentuk x² + bx + c, soal 7 perlu diubah ke bentuk baku, soal 8-9 punya a ≠ 1, dan soal 10 soal cerita.</p></div>'
+  var h='<div class="sec"><div class="lbl">Tugas Pertemuan 1</div><h2>10 soal pemfaktoran</h2><p class="hint" style="margin:6px 0 0">Kerjakan dengan tabel faktor. Semua soal memakai a = 1. Soal 1-6 sudah berbentuk x² + bx + c, soal 7-9 perlu diubah ke bentuk baku dulu, dan soal 10 soal cerita.</p></div>'
    +'<div class="sec" id="idForm"><h3>Isi identitas dulu</h3><label class="f" for="tnama">Nama</label><input type="text" id="tnama" autocomplete="off"><label class="f" for="tkelas">Kelas</label><input type="text" id="tkelas" placeholder="Contoh: 8.1" autocomplete="off"><div class="pesan" id="terr"></div><p style="margin-bottom:0"><button class="btn" type="button" onclick="mulaiTugas()">Mulai mengerjakan</button></p></div>'
    +'<div id="tugasApp" style="display:none"><p class="rekap" id="rekapT"></p><div id="riwT"></div><div id="soalT"></div></div>';
   return h;
