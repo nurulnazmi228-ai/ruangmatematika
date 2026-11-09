@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Misi Kali dan Bagi | Ruang Matematika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ec;--grid:rgba(31,111,92,.08);--card:#fff;--ink:#17261f;--mute:#5d6b64;--line:#dcd8c9;--hero:#0f3d33;--chalk:#f4f1e6;--accent:#f2b134;--main:#1f6f5c;--soft:#e9f2ee;--paper:#fffaf0;--ok:#1b7f4b;--okbg:#e4f5ea;--bad:#b3261e;--badbg:#fdeceb;--c1:#2f8f9d;--c2:#d9573b;--c3:#8a5ac2;--c4:#c2792b;--c5:#1f6f5c;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--paper:#1d2a24;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d;--c1:#5cc3d1;--c2:#ff8a6b;--c3:#b891ee;--c4:#f0a85a;--c5:#4fbf9f}}
+:root[data-theme="dark"]{--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--paper:#1d2a24;--ok:#6fdc9f;--okbg:#17301f;--bad:#ff8a80;--badbg:#3a1f1d;--c1:#5cc3d1;--c2:#ff8a6b;--c3:#b891ee;--c4:#f0a85a;--c5:#4fbf9f}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:"DM Sans",system-ui,"Segoe UI",Arial,sans-serif;line-height:1.6;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.2}
+header{background:var(--hero);color:var(--chalk);border-radius:0 0 28px 28px;padding:18px 0 28px}
+header a{color:var(--accent);text-decoration:none;font-weight:700;font-size:.92rem;margin-right:14px}
+header h1{font-size:clamp(1.6rem,5vw,2.4rem);margin:14px 0 6px}header p{margin:0;color:rgba(244,241,230,.85)}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:12px 0}
+.lbl{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+label.f{display:block;font-weight:700;font-size:.88rem;margin:10px 0 3px}
+input[type=text]{width:100%;padding:9px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:1.05rem}
+input:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+input.ok{border-color:var(--ok);background:var(--okbg)}input.no{border-color:var(--bad);background:var(--badbg)}
+.btn{font:inherit;font-weight:700;background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 20px;cursor:pointer}.btn.alt{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+.link{background:none;border:0;color:var(--main);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;margin-left:8px}
+.hint{font-size:.86rem;color:var(--mute)}.pesan{color:var(--bad);font-weight:700;margin:8px 0 0}
+.mat{font-family:"Cambria Math",Cambria,Georgia,serif;font-weight:700}
+.ke{display:inline-block;background:var(--accent);color:#2a1f00;font-weight:800;border-radius:999px;padding:3px 14px;margin-bottom:6px}
+.rekap{margin:12px 0 0;font-size:.9rem;color:var(--mute)}.rekap b{color:var(--ink)}
+.jalur{display:flex;align-items:center;gap:0;margin:8px 0 2px;overflow-x:auto;padding:4px 2px}
+.nd{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:800;border:3px solid var(--line);background:var(--card);color:var(--mute)}
+.nd.on{border-color:var(--accent);color:var(--ink);box-shadow:0 0 0 4px rgba(242,177,52,.25)}.nd.sel{border-color:var(--ok);background:var(--okbg);color:var(--ok)}
+.gr{flex:1;min-width:16px;height:4px;background:var(--line)}.gr.sel{background:var(--ok)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--ok));width:0;transition:width .4s}
+.misi{border-radius:18px;border:1px solid var(--line);background:var(--card);margin:14px 0;overflow:hidden}
+.mh{display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:6px solid var(--mc,var(--main))}
+.mh .no{flex:none;width:42px;height:42px;border-radius:12px;background:var(--mc,var(--main));color:#fff;display:grid;place-items:center;font-family:Fraunces,Georgia,serif;font-weight:800;font-size:1.2rem}
+.mh h3{font-size:1.1rem}.mh .bt{margin-left:auto;font-size:1.2rem;white-space:nowrap}
+.mb{padding:0 16px 16px}.kunci{background:var(--paper);border-left:5px solid var(--mc,var(--main));padding:8px 12px;border-radius:8px;margin-bottom:12px;font-size:.92rem}
+.q{border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}.q p{margin:0 0 8px}.q .n{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.opt{display:block;padding:8px 12px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:6px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--main);background:var(--soft)}.opt.ok{border-color:var(--ok);background:var(--okbg)}.opt.no{border-color:var(--bad);background:var(--badbg)}
+.fb{margin-top:8px;padding:9px 12px;border-radius:10px;font-size:.93rem}.fb.ok{background:var(--okbg);color:var(--ok)}.fb.no{background:var(--badbg);color:var(--bad)}.fb span{color:var(--ink)}
+.kunc{opacity:.6;text-align:center;padding:14px;color:var(--mute)}
+.banner{background:var(--soft);border:1.5px solid var(--main);border-radius:16px;padding:14px 18px;margin:14px 0}.banner .nilai{font-family:Fraunces,Georgia,serif;font-size:2.4rem;font-weight:800;color:var(--main);line-height:1}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{border:1px solid var(--line);padding:5px 8px;text-align:left}
+.scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a href="index.html">&larr; Beranda</a><a href="materi-aljabar-7.html#p4">Materi Pertemuan 4</a><h1>Misi Kali dan Bagi</h1><p>Latihan mandiri Aljabar Kelas 7. Selesaikan 5 misi, kumpulkan bintang, dan lihat nilaimu. Soalmu berbeda dari teman-temanmu.</p></div></header>
+<main class="wrap">
+ <section class="sec" id="idForm">
+  <h2 style="font-size:1.2rem">Siap bertugas? Isi identitas dulu</h2>
+  <label class="f" for="nama">Nama</label><input type="text" id="nama" autocomplete="off">
+  <label class="f" for="kelas">Kelas</label><input type="text" id="kelas" placeholder="Contoh: 7.1" autocomplete="off">
+  <div class="pesan" id="err"></div>
+  <p style="margin-bottom:0"><button class="btn" id="mulai" type="button">Mulai misi</button></p>
+ </section>
+ <div id="app" style="display:none"><p class="rekap" id="rekap"></p><div id="top"></div><div id="riw"></div><div id="misi"></div><div id="hasil"></div></div>
+</main>
+
+<script>
+var $=function(i){return document.getElementById(i)}, SK="misi-kalibagi7:", ID=null, N=1, H=[], RG=null, S=[], DONE=[], T0=0;
+var MISI=[
+ {n:"Pemanasan Kilat",c:"var(--c1)",j:"Kalikan atau bagi koefisiennya, variabelnya tetap. Hati-hati dengan tanda: (−) × (+) = (−), (−) × (−) = (+)."},
+ {n:"Jurus Distributif",c:"var(--c2)",j:"Kalikan bilangan di luar kurung dengan SETIAP suku di dalam kurung. k(ax + b) = kax + kb."},
+ {n:"Si Pembagi",c:"var(--c3)",j:"Bagi SETIAP suku dengan bilangan yang sama. (ax + b) ÷ k = (a ÷ k)x + (b ÷ k)."},
+ {n:"Detektif Kesalahan",c:"var(--c4)",j:"Seseorang membuat kesalahan. Temukan hasil yang benar dengan memeriksa tiap suku dan tandanya."},
+ {n:"Misi Cerita",c:"var(--c5)",j:"Baca teliti, tulis bentuk aljabarnya, lalu jabarkan dan sederhanakan sampai tidak ada kurung."}
+];
+var PUJI=["Mantap!","Tepat sekali!","Keren!","Betul!","Hebat!","Pas banget!"],SEMANGAT=["Belum tepat, tapi kamu pasti bisa.","Hampir! Cek lagi tandanya.","Tidak apa-apa, pelajari pembahasannya."];
+function hash(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function rnd(n){return Math.floor(RG()*n)}function kk(a,b){return a+rnd(b-a+1)}function pick(a){return a[rnd(a.length)]}
+function acak(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
+/* ---------- aljabar kecil ---------- */
+function fn(n){return n<0?"−"+fn(-n):(n>=1000?String(n).replace(/\B(?=(\d{3})+(?!\d))/g,"."):String(n))}
+function tm(t){if(t.s==="")return fn(t.c);return t.c===1?t.s:t.c===-1?"−"+t.s:fn(t.c)+t.s}
+function gb(l){return l.length?l.map(function(x,i){return i===0?tm(x):(x.c<0?" − "+tm({s:x.s,c:-x.c}):" + "+tm(x))}).join(""):"0"}
+function gp(l){return "("+gb(l)+")"}
+function kali(k,l){return l.map(function(t){return {s:t.s,c:k*t.c}})}
+function bagi(l,k){return l.map(function(t){return {s:t.s,c:t.c/k}})}
+function plus(A,B){var r={};A.concat(B).forEach(function(t){r[t.s]=(r[t.s]||0)+t.c});return Object.keys(r).filter(function(k){return r[k]!==0}).sort(function(a,b){return a===""?1:b===""?-1:a<b?-1:1}).map(function(k){return {s:k,c:r[k]}})}
+function sk(c){return (c<0?"−":"")+Math.abs(c)}
+function ev(l,e){return l.reduce(function(s,t){return s+t.c*(t.s===""?1:e[t.s])},0)}
+/* ---------- pembuat soal ---------- */
+var VARS=["x","y","a","b","m","n","p"];
+function vv(){var v=pick(VARS),w=pick(VARS.filter(function(z){return z!==v}));return [v,w]}
+function ekspr(q,A,p,fx){return {tipe:"isi",q:q,a:gb(A),p:p,fx:fx}}
+function misi1(){
+  var o=[];
+  {let v=pick(VARS),k=kk(2,9),c=kk(2,9);
+   o.push(ekspr("Hitung <b class='mat'>"+k+" × "+c+v+"</b>.",[{s:v,c:k*c}],k+" × "+c+" = "+(k*c)+", variabelnya tetap: "+(k*c)+v+".",function(e){return k*c*e[v]}));}
+  {let v=pick(VARS),k=kk(2,9),c=kk(2,9),neg=rnd(2);
+   o.push(ekspr("Hitung <b class='mat'>"+(neg?"(−"+k+") × "+c+v:k+" × (−"+c+v+")")+"</b>.",[{s:v,c:-k*c}],"Satu faktor negatif dan satu positif, hasilnya negatif: −"+(k*c)+v+".",function(e){return -k*c*e[v]}));}
+  {let v=pick(VARS),d=kk(2,9),c=d*kk(2,9);
+   o.push(ekspr("Hitung <b class='mat'>"+c+v+" ÷ "+d+"</b>.",[{s:v,c:c/d}],c+" ÷ "+d+" = "+(c/d)+", variabelnya tetap: "+(c/d)+v+".",function(e){return c/d*e[v]}));}
+  {let v=pick(VARS),d=kk(2,9),c=d*kk(2,9),m2=rnd(2);
+   o.push(ekspr("Hitung <b class='mat'>"+(m2?"(−"+c+v+") ÷ "+d:c+v+" ÷ (−"+d+")")+"</b>.",[{s:v,c:-c/d}],"Bilangan negatif dibagi bilangan positif (atau sebaliknya) hasilnya negatif: −"+(c/d)+v+".",function(e){return -c/d*e[v]}));}
+  return o;
+}
+function misi2(){
+  var o=[],V=vv(),v=V[0],w=V[1];
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,9),A=[{s:v,c:a},{s:"",c:b}];
+   o.push(ekspr("Jabarkan <b class='mat'>"+k+gp(A)+"</b>.",kali(k,A),k+" × "+tm(A[0])+" = "+tm(kali(k,A)[0])+" dan "+k+" × "+b+" = "+(k*b)+".",function(e){return k*ev(A,e)}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,9),A=[{s:v,c:a},{s:"",c:-b}];
+   o.push(ekspr("Jabarkan <b class='mat'>"+k+gp(A)+"</b>.",kali(k,A),"Perhatikan tanda: "+k+" × (−"+b+") = −"+(k*b)+".",function(e){return k*ev(A,e)}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,9),A=[{s:v,c:a},{s:"",c:b}];
+   o.push(ekspr("Jabarkan <b class='mat'>−"+k+gp(A)+"</b>.",kali(-k,A),"Kalikan −"+k+" dengan kedua suku: −"+k+" × "+tm(A[0])+" = "+tm(kali(-k,A)[0])+" dan −"+k+" × "+b+" = −"+(k*b)+".",function(e){return -k*ev(A,e)}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:v,c:a},{s:w,c:-b}];
+   o.push(ekspr("Jabarkan <b class='mat'>−"+k+gp(A)+"</b>.",kali(-k,A),"Negatif kali negatif hasilnya positif: −"+k+" × (−"+b+w+") = +"+(k*b)+w+".",function(e){return -k*ev(A,e)}));}
+  return o;
+}
+function misi3(){
+  var o=[],V=vv(),v=V[0],w=V[1];
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:v,c:k*a},{s:"",c:k*b}];
+   o.push(ekspr("Sederhanakan <b class='mat'>"+gp(A)+" ÷ "+k+"</b>.",bagi(A,k),"Bagi tiap suku dengan "+k+": "+(k*a)+v+" ÷ "+k+" = "+a+v+" dan "+(k*b)+" ÷ "+k+" = "+b+".",function(e){return ev(A,e)/k}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:v,c:k*a},{s:"",c:-k*b}];
+   o.push(ekspr("Sederhanakan <b class='mat'>"+gp(A)+" ÷ "+k+"</b>.",bagi(A,k),"Bagi tiap suku, tanda ikut terbawa: −"+(k*b)+" ÷ "+k+" = −"+b+".",function(e){return ev(A,e)/k}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:v,c:-k*a},{s:"",c:k*b}];
+   o.push(ekspr("Sederhanakan <b class='mat'>"+gp(A)+" ÷ "+k+"</b>.",bagi(A,k),"Suku pertama bertanda negatif, dibagi bilangan positif tetap negatif: −"+a+v+". Suku kedua: "+(k*b)+" ÷ "+k+" = "+b+".",function(e){return ev(A,e)/k}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,5),A=[{s:v,c:k*a},{s:w,c:k*b}];
+   o.push(ekspr("Sederhanakan <b class='mat'>"+gp(A)+" ÷ (−"+k+")</b>.",bagi(A,-k),"Dibagi bilangan negatif, kedua suku berubah tanda: "+tm({s:v,c:-a})+" dan "+tm({s:w,c:-b})+".",function(e){return ev(A,e)/-k}));}
+  return o;
+}
+function pg(q,benar,kandidat,p,cek){
+  var salah=[];kandidat.forEach(function(t){if(t!==benar&&salah.indexOf(t)<0)salah.push(t)});salah=salah.slice(0,2);
+  var opts=acak([{t:benar,ok:1}].concat(salah.map(function(t){return {t:t,ok:0}})));
+  return {tipe:"pg",q:q,opts:opts,ok:opts.findIndex(function(x){return x.ok}),a:benar,p:p,cek:cek};
+}
+function misi4(){
+  var o=[],V=vv(),v=V[0];
+  {let k=kk(2,6),a=kk(1,5),b=kk(2,9),A=[{s:v,c:a},{s:"",c:-b}],B=kali(-k,A),rani=gb([{s:v,c:-k*a},{s:"",c:-k*b}]);
+   o.push(pg("Rani menjabarkan <b class='mat'>−"+k+gp(A)+"</b> dan mendapat <b class='mat'>"+rani+"</b>. Hasil yang benar adalah ...",gb(B),[rani,gb([{s:v,c:-k*a},{s:"",c:b}]),gb([{s:v,c:k*a},{s:"",c:k*b}])],
+    "Rani lupa bahwa negatif kali negatif hasilnya positif: −"+k+" × (−"+b+") = +"+(k*b)+". Hasil benar: "+gb(B)+".",{f:function(e){return -k*ev(A,e)}}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(2,9),A=[{s:v,c:a},{s:"",c:b}],B=kali(k,A),dimas=gb([{s:v,c:k*a},{s:"",c:b}]);
+   o.push(pg("Dimas menjabarkan <b class='mat'>"+k+gp(A)+"</b> dan mendapat <b class='mat'>"+dimas+"</b>. Hasil yang benar adalah ...",gb(B),[dimas,gb([{s:v,c:a+k},{s:"",c:k*b}]),gb([{s:v,c:k*a},{s:"",c:-k*b}]),gb([{s:v,c:k*a},{s:"",c:k+b}])],
+    "Dimas hanya mengalikan suku pertama. Suku kedua juga harus dikalikan: "+k+" × "+b+" = "+(k*b)+". Hasil benar: "+gb(B)+".",{f:function(e){return k*ev(A,e)}}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:v,c:k*a},{s:"",c:k*b}],B=bagi(A,k),sinta=gb([{s:v,c:a},{s:"",c:k*b}]);
+   o.push(pg("Sinta menghitung <b class='mat'>"+gp(A)+" ÷ "+k+"</b> dan mendapat <b class='mat'>"+sinta+"</b>. Hasil yang benar adalah ...",gb(B),[sinta,gb([{s:v,c:k*a},{s:"",c:b}]),gb([{s:v,c:a},{s:"",c:-b}])],
+    "Sinta hanya membagi suku pertama. Pembagian berlaku untuk SETIAP suku: "+(k*b)+" ÷ "+k+" = "+b+". Hasil benar: "+gb(B)+".",{f:function(e){return ev(A,e)/k}}));}
+  {let m1=kk(2,5),c1=kk(1,5),d1=kk(2,7),m2=kk(2,5),c2=kk(1,5),d2=kk(2,7),m3=kk(2,5),c3=kk(1,5),d3=kk(2,7);
+   let benarE=m1+"("+tm({s:v,c:c1})+" − "+d1+") = "+gb([{s:v,c:m1*c1},{s:"",c:-m1*d1}]),
+      s1=m2+"("+tm({s:v,c:c2})+" + "+d2+") = "+gb([{s:v,c:m2*c2},{s:"",c:d2}]),
+      s2="−"+m3+"("+tm({s:v,c:c3})+" − "+d3+") = "+gb([{s:v,c:-m3*c3},{s:"",c:-m3*d3}]);
+   o.push(pg("Pernyataan berikut yang <b>benar</b> adalah ...",benarE,[s1,s2],
+    "Periksa tiap suku. Yang benar: "+benarE+". Dua lainnya salah karena ada suku yang lupa dikalikan atau tandanya keliru.",{eqs:1}));}
+  return o;
+}
+function misi5(){
+  var o=[];
+  {let k=kk(3,8),n=kk(2,4),c=kk(2,6)*1000,A=[{s:"b",c:n},{s:"",c:c}];
+   o.push(ekspr("Satu paket alat tulis berisi "+n+" buku seharga <b>b</b> rupiah per buku dan sebuah penggaris seharga Rp"+fn(c)+". Sebuah kelas memesan "+k+" paket. Tulis bentuk aljabar <b>total biaya</b> pesanan (rupiah) dalam bentuk paling sederhana.",kali(k,A),
+    "Satu paket: "+gb(A)+". Untuk "+k+" paket: "+k+gp(A)+" = "+gb(kali(k,A))+".",function(e){return k*(n*e.b+c)}));}
+  {let k=kk(2,7),a=kk(2,5),b=kk(1,9),A=[{s:"x",c:a},{s:"",c:b}];
+   o.push(ekspr("Panjang sebuah lapangan "+gp(A)+" meter dan lebarnya "+k+" meter. Tulis bentuk aljabar <b>luas lapangan</b> (m²) dalam bentuk paling sederhana.",kali(k,A),
+    "Luas = panjang × lebar = "+k+gp(A)+" = "+gb(kali(k,A))+".",function(e){return k*ev(A,e)}));}
+  {let k=kk(2,6),a=kk(1,5),b=kk(1,6),A=[{s:"y",c:k*a},{s:"",c:k*b}];
+   o.push(ekspr("Hadiah lomba senilai "+gp(A)+" ribu rupiah dibagi rata kepada "+k+" pemenang. Tulis bentuk aljabar <b>hadiah tiap pemenang</b> (ribu rupiah).",bagi(A,k),
+    "Bagi tiap suku dengan "+k+": "+gb(bagi(A,k))+".",function(e){return ev(A,e)/k}));}
+  {let k1=kk(2,4),k2=kk(2,4),a1=kk(1,4),b1=kk(1,5),a2=kk(1,4),b2=kk(1,5)*(rnd(2)?1:-1),A=[{s:"x",c:a1},{s:"",c:b1}],B=[{s:"x",c:a2},{s:"",c:b2}];
+   o.push(ekspr("Paket A berisi "+gp(A)+" kg beras, dipesan "+k1+" paket. Paket B berisi "+gp(B)+" kg beras, dipesan "+k2+" paket. Tulis bentuk aljabar <b>total berat beras</b> yang dipesan dalam bentuk paling sederhana.",plus(kali(k1,A),kali(k2,B)),
+    "Jabarkan dulu: "+k1+gp(A)+" = "+gb(kali(k1,A))+" dan "+k2+gp(B)+" = "+gb(kali(k2,B))+". Lalu jumlahkan suku sejenis: "+gb(plus(kali(k1,A),kali(k2,B)))+".",function(e){return k1*ev(A,e)+k2*ev(B,e)}));}
+  return o;
+}
+function susun(){S=[misi1(),misi2(),misi3(),misi4(),misi5()]}
+/* ---------- pemeriksa jawaban (toleran salah ketik sederhana) ---------- */
+function bersih(s){
+  s=String(s).toLowerCase().replace(/[−–—‑]/g,"-").replace(/[×·]/g,"*").replace(/÷/g,"/").replace(/\s+/g,"");
+  s=s.replace(/^(jawaban|jawab)[:=]?/,"").replace(/rp\.?/g,"").replace(/(kg|rupiah|meter|ribu|m²)/g,"");
+  s=s.replace(/(\d)[.,](?=\d{3}(\D|$))/g,"$1").replace(/,/g,".");
+  s=s.replace(/[.;:!?]+$/,"").replace(/[+\-*\/]+$/,"");
+  var o=(s.match(/\(/g)||[]).length,c=(s.match(/\)/g)||[]).length;
+  while(c>o&&s[s.length-1]===")"){s=s.slice(0,-1);c--} while(o>c){s+=")";c++}
+  return s;
+}
+function pAdd(a,b,m){var r={},k;for(k in a)r[k]=(r[k]||0)+a[k];for(k in b)r[k]=(r[k]||0)+m*b[k];return r}
+function pMul(a,b){var r={},x,y,k;for(x in a)for(y in b){k=(x+y).split("").sort().join("");r[k]=(r[k]||0)+a[x]*b[y]}return r}
+function pBaca(s){
+  s=bersih(s); if(!s) return null; var i=0;
+  function faktor(){
+    var neg=false,r; while(s[i]==="+"||s[i]==="-"){if(s[i]==="-")neg=!neg;i++}
+    if(s[i]==="("){i++;r=ekspr();if(!r||s[i]!==")")return null;i++}
+    else if(/[0-9.]/.test(s[i]||"")){var m=/^(\d+\.?\d*|\.\d+)/.exec(s.slice(i));if(!m)return null;i+=m[0].length;r={"":parseFloat(m[0])}}
+    else if(/[a-z]/.test(s[i]||"")){r={};r[s[i]]=1;i++}
+    else return null;
+    return neg?pMul(r,{"":-1}):r;
+  }
+  function suku(){
+    var r=faktor(); if(!r) return null;
+    while(i<s.length&&(s[i]==="*"||s[i]==="/"||s[i]==="("||/[a-z0-9.]/.test(s[i]))){
+      if(s[i]==="/"){i++;var d=faktor();if(!d||Object.keys(d).length!==1||d[""]===undefined||d[""]===0)return null;r=pMul(r,{"":1/d[""]});continue}
+      if(s[i]==="*")i++; var f=faktor();if(!f)return null;r=pMul(r,f)}
+    return r;
+  }
+  function ekspr(){
+    var r=suku(); if(!r) return null;
+    while(i<s.length&&(s[i]==="+"||s[i]==="-")){var o=s[i++]==="+"?1:-1,t=suku();if(!t)return null;r=pAdd(r,t,o)}
+    return r;
+  }
+  var r=ekspr(); if(!r||i<s.length) return null;
+  for(var k in r) if(Math.abs(r[k])<1e-9) delete r[k];
+  return r;
+}
+function samaM(a,b){var ka=Object.keys(a),kb=Object.keys(b);return ka.length===kb.length&&ka.every(function(k){return b.hasOwnProperty(k)&&Math.abs(a[k]-b[k])<1e-9})}
+function akhir(v){var p=String(v).split("=").map(function(x){return x.trim()}).filter(Boolean);return p.length?p[p.length-1]:""}
+function sederhana(v){
+  var s=bersih(akhir(v)),w=/^\(([^()]*)\)$/.exec(s); if(w) s=w[1];
+  if(/[()*\/]/.test(s)) return false;
+  var ts=s.match(/[+-]?[^+-]+/g)||[],seen={};
+  for(var i=0;i<ts.length;i++){var key=ts[i].replace(/^[+-]?[\d.]*/,"").split("").sort().join("");if(seen[key])return false;seen[key]=1}
+  return true;
+}
+function valid(v){return !!pBaca(akhir(v))}
+function cekIsi(v,a){var x=pBaca(akhir(v)),y=pBaca(a);return {nilai:!!x&&!!y&&samaM(x,y),sederhana:sederhana(v)}}
+/* ---------- penyimpanan ---------- */
+function kid(){return ID.nama.toLowerCase().replace(/\s+/g," ")+"|"+ID.kelas}
+function get(k){try{return JSON.parse(localStorage.getItem(SK+k+":"+kid())||"null")}catch(e){return null}}
+function put(k,v){try{localStorage.setItem(SK+k+":"+kid(),JSON.stringify(v))}catch(e){}}
+function lamaTxt(d){var m=Math.floor(d/60),s=d%60;return (m?m+" menit ":"")+s+" detik"}
+function bintangMisi(b){return b>=4?3:b===3?2:b===2?1:0}
+function bTxt(n){return n?"⭐".repeat(n)+"☆".repeat(3-n):"☆☆☆"}
+/* ---------- tampilan ---------- */
+function riwayat(){
+  if(!H.length) return "";
+  return '<div class="sec"><div class="lbl">Riwayat pengerjaan</div><div class="scroll"><table><tr><th>Ke-</th><th>Waktu kirim</th><th>Nilai</th><th>Bintang</th><th>Lama</th></tr>'+H.map(function(h){return '<tr><td>'+h.n+'</td><td>'+esc(h.waktu)+'</td><td><b>'+h.nilai+'</b></td><td>'+h.bintang+'/15</td><td>'+lamaTxt(h.lama)+'</td></tr>'}).join("")+'</table></div></div>';
+}
+function jalur(){
+  var h="";for(var i=0;i<5;i++){var st=DONE[i]?"sel":(i===0||DONE[i-1])?"on":"";h+=(i?'<div class="gr'+(DONE[i-1]?" sel":"")+'"></div>':"")+'<div class="nd '+st+'">'+(DONE[i]?"✓":(i===0||DONE[i-1])?(i+1):"🔒")+'</div>'}
+  var b=DONE.reduce(function(s,d){return s+(d?d.bintang:0)},0),k=DONE.filter(Boolean).length;
+  $("top").innerHTML='<div class="sec"><span class="ke">Pengerjaan ke-'+N+'</span><div class="jalur">'+h+'</div><div class="bar"><i style="width:'+(k*20)+'%"></i></div><div class="hint" style="margin-top:6px">Misi selesai: '+k+' dari 5 &middot; Bintang: '+b+' dari 15</div></div>';
+}
+function render(){
+  $("riw").innerHTML=riwayat();$("hasil").innerHTML="";
+  var d=get("d:"+N)||{};DONE=get("m:"+N)||[];
+  var h="";
+  S.forEach(function(ms,mi){
+    h+='<section class="misi" id="ms'+mi+'" style="--mc:'+MISI[mi].c+'"><div class="mh"><div class="no">'+(mi+1)+'</div><div><h3>Misi '+(mi+1)+': '+MISI[mi].n+'</h3><div class="hint">'+ms.length+' soal</div></div><span class="bt" id="bt'+mi+'"></span></div><div class="mb" id="mb'+mi+'"></div></section>';
+  });
+  $("misi").innerHTML=h;
+  if(!get("t0:"+N)) put("t0:"+N,Date.now()); T0=get("t0:"+N);
+  S.forEach(function(ms,mi){isiMisi(mi,d)});
+  S.forEach(function(ms,mi){if(DONE[mi])periksa(mi,true)});
+  jalur();segarkan();
+}
+function terbuka(mi){return mi===0||!!DONE[mi-1]}
+function isiMisi(mi,d){
+  var ms=S[mi],h='<div class="kunci"><b>Jurus:</b> '+MISI[mi].j+'</div>';
+  ms.forEach(function(s,si){var id=mi+"-"+si;
+    h+='<div class="q"><div class="n">Soal '+(si+1)+'</div><p>'+s.q+'</p>';
+    if(s.tipe==="pg")h+=s.opts.map(function(o,oi){return '<label class="opt" id="o'+id+'-'+oi+'"><input type="radio" name="r'+id+'" value="'+oi+'" data-k="'+id+'"> '+"ABC"[oi]+". "+esc(o.t)+'</label>'}).join("");
+    else h+='<input type="text" id="t'+id+'" data-k="'+id+'" autocomplete="off" aria-label="Jawaban soal '+(si+1)+'" placeholder="Tulis jawabanmu">';
+    h+='<div id="f'+id+'"></div></div>';
+  });
+  h+='<p style="margin:14px 0 0"><button class="btn" id="pm'+mi+'" type="button" onclick="periksa('+mi+')">Periksa Misi '+(mi+1)+'</button></p><div class="pesan" id="ps'+mi+'"></div><div id="mf'+mi+'"></div>';
+  $("mb"+mi).innerHTML=h;
+  ms.forEach(function(s,si){var id=mi+"-"+si,v=d[id];
+    if(s.tipe==="pg"){if(v!==undefined&&v!==null){var r=document.querySelector('input[name="r'+id+'"][value="'+v+'"]');if(r)r.checked=true}}
+    else if(v)$("t"+id).value=v;
+  });
+  document.querySelectorAll("#mb"+mi+" [data-k]").forEach(function(e){e.onchange=e.oninput=simpanDraf});
+}
+function simpanDraf(){var o=get("d:"+N)||{};S.forEach(function(ms,mi){ms.forEach(function(s,si){var id=mi+"-"+si;if(s.tipe==="pg"){var r=document.querySelector('input[name="r'+id+'"]:checked');if(r)o[id]=+r.value}else{var e=$("t"+id);if(e)o[id]=e.value}})});put("d:"+N,o)}
+function segarkan(){
+  S.forEach(function(ms,mi){var buka=terbuka(mi),mb=$("mb"+mi);
+    if(!buka){mb.innerHTML='<div class="kunc">🔒 Selesaikan Misi '+mi+' dulu untuk membuka misi ini.</div>';mb.dataset.lock="1"}
+    else if(mb.dataset.lock){delete mb.dataset.lock;isiMisi(mi,get("d:"+N)||{})}
+    $("bt"+mi).textContent=DONE[mi]?bTxt(DONE[mi].bintang):"";
+  });
+}
+function periksa(mi,diam){
+  var ms=S[mi],kosong=0,aneh=0,jaw=[];
+  ms.forEach(function(s,si){var id=mi+"-"+si;
+    if(s.tipe==="pg"){var r=document.querySelector('input[name="r'+id+'"]:checked');if(!r)kosong++;jaw.push(r?+r.value:null)}
+    else{var t=$("t"+id).value.trim();if(!t)kosong++;else if(!valid(t))aneh++;jaw.push(t)}
+  });
+  if(!diam){
+    if(kosong){$("ps"+mi).textContent="Masih ada "+kosong+" soal yang belum dijawab. Jawab semuanya dulu ya.";return}
+    if(aneh){$("ps"+mi).textContent="Ada "+aneh+" jawaban yang penulisannya belum bisa dibaca. Contoh penulisan: 6x − 15 atau −4y + 8.";return}
+  }
+  var benar=0;
+  ms.forEach(function(s,si){var id=mi+"-"+si,ok,ket="",kn="";
+    if(s.tipe==="pg"){var pil=jaw[si];ok=pil!==null&&s.opts[pil].ok===1;
+      s.opts.forEach(function(o,oi){var l=$("o"+id+"-"+oi);if(l){l.classList.remove("ok","no");if(o.ok)l.classList.add("ok");else if(oi===pil)l.classList.add("no")}});
+      document.querySelectorAll('input[name="r'+id+'"]').forEach(function(x){x.disabled=true});kn=s.a}
+    else{var c=cekIsi(jaw[si],s.a);ok=c.nilai&&c.sederhana;var e=$("t"+id);e.disabled=true;e.className=ok?"ok":"no";kn=s.a;
+      if(c.nilai&&!c.sederhana)ket="Nilainya sudah benar, tetapi bentuknya belum sederhana (masih ada kurung, pembagian, atau suku sejenis yang belum digabung). "}
+    if(ok)benar++;
+    $("f"+id).innerHTML='<div class="fb '+(ok?"ok":"no")+'"><b>'+(ok?pick(PUJI):pick(SEMANGAT))+'</b> <span>'+ket+(ok?"":"Jawaban yang benar: <b class='mat'>"+esc(kn)+"</b>. ")+s.p+'</span></div>';
+  });
+  var bt=bintangMisi(benar);DONE[mi]={benar:benar,bintang:bt};put("m:"+N,DONE);
+  var b=$("pm"+mi);if(b)b.style.display="none";
+  $("mf"+mi).innerHTML='<div class="banner"><b>Misi '+(mi+1)+' selesai: '+benar+' dari '+ms.length+' benar</b> &nbsp; <span style="font-size:1.3rem">'+bTxt(bt)+'</span>'+(mi<4?'<p style="margin:10px 0 0"><button class="btn" type="button" onclick="lanjut('+(mi+1)+')">Lanjut ke Misi '+(mi+2)+' &rarr;</button></p>':'')+'</div>';
+  if(!diam){jalur();segarkan();if(mi===4)selesai()}
+}
+function lanjut(mi){segarkan();jalur();var e=$("ms"+mi);if(e&&e.scrollIntoView)e.scrollIntoView({behavior:"smooth",block:"start"})}
+function selesai(){
+  if(get("fin:"+N)) return;
+  var benar=DONE.reduce(function(s,d){return s+d.benar},0),bintang=DONE.reduce(function(s,d){return s+d.bintang},0),nilai=benar*5;
+  var lama=Math.max(1,Math.round((Date.now()-T0)/1000)),waktu=new Date().toLocaleString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  H.push({n:N,waktu:waktu,nilai:nilai,benar:benar,bintang:bintang,lama:lama});put("h",H);put("fin:"+N,1);
+  $("riw").innerHTML=riwayat();
+  $("hasil").innerHTML='<div class="banner"><span class="ke">Pengerjaan ke-'+N+'</span><div class="nilai">'+nilai+'</div><div>'+esc(ID.nama)+' (kelas '+esc(ID.kelas)+') &middot; Benar '+benar+' dari 20 &middot; Bintang '+bintang+' dari 15</div><div class="hint">'+MISI.map(function(m,i){return "Misi "+(i+1)+": "+DONE[i].benar+"/4"}).join(" &middot; ")+'<br>Dikirim: '+esc(waktu)+' &middot; Lama: '+lamaTxt(lama)+'</div><div class="hint" style="margin-top:6px">Foto layar ini dan tunjukkan ke guru. Nomor pengerjaan dan riwayat nilai ikut tercatat.</div><p style="margin:10px 0 0"><button class="btn alt" type="button" onclick="ulangi()">Main lagi (pengerjaan ke-'+(N+1)+', soal baru)</button></p></div>';
+  $("hasil").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function mulaiAttempt(){N=H.length+1;RG=mulberry(hash(kid()+"|"+N));susun();render();window.scrollTo({top:0})}
+function ulangi(){mulaiAttempt()}
+function rekap(){$("rekap").innerHTML="<b>"+esc(ID.nama)+"</b> (kelas "+esc(ID.kelas)+')<button class="link" id="ganti" type="button">Ganti siswa</button>';$("ganti").onclick=function(){$("app").style.display="none";$("idForm").style.display="block"}}
+try{var sv=JSON.parse(localStorage.getItem(SK+"id")||"null");if(sv){$("nama").value=sv.nama||"";$("kelas").value=sv.kelas||""}}catch(e){}
+$("mulai").onclick=function(){
+  var n=$("nama").value.trim().replace(/\s+/g," "),k=$("kelas").value.trim().replace(",",".");
+  if(!n){$("err").textContent="Nama wajib diisi.";return}
+  if(!/^\d\.\d{1,2}$/.test(k)){$("err").textContent="Tulis kelas seperti 7.1 (angka, titik, angka).";return}
+  $("err").textContent="";ID={nama:n,kelas:k};try{localStorage.setItem(SK+"id",JSON.stringify(ID))}catch(e){}
+  H=get("h")||[];$("idForm").style.display="none";$("app").style.display="block";rekap();
+  var nxt=H.length+1,adaProgres=get("d:"+nxt)||get("m:"+nxt);
+  if(H.length&&!adaProgres){N=nxt;$("top").innerHTML="";$("riw").innerHTML=riwayat();$("misi").innerHTML='<div class="sec"><p style="margin:0 0 10px">Kamu sudah menamatkan latihan ini <b>'+H.length+' kali</b>. Nilai terakhir: <b>'+H[H.length-1].nilai+'</b>.</p><button class="btn" type="button" onclick="mulaiAttempt()">Mulai pengerjaan ke-'+N+'</button></div>';$("hasil").innerHTML=""}
+  else mulaiAttempt();
+};
+</script>
+</body>
+</html>
