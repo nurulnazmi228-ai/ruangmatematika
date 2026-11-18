@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TTS Bilangan Bulat – Kelas 7</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap">
+<style>
+:root{--paper:#eef3f8;--grid:#d3dfeb;--ink:#17324d;--pos:#0e8f7e;--neg:#d6455d;--hi:#ffd84d;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Baloo 2",system-ui,sans-serif;color:var(--ink);background-color:var(--paper);
+ background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+header{padding:18px 20px 6px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:clamp(1.5rem,4vw,2.3rem);font-weight:800}
+h1 .p{color:var(--pos)}h1 .m{color:var(--neg)}
+.ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+select,button,input{font:inherit;color:inherit}
+select,button{border:2px solid var(--ink);background:var(--card);border-radius:10px;padding:4px 12px;cursor:pointer}
+button.main{background:var(--ink);color:#fff}
+button:focus-visible,input:focus-visible,select:focus-visible,.clue:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;padding:12px 20px 30px;max-width:1150px;margin:auto}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:12px}
+#board{overflow-x:auto}
+table{border-collapse:collapse;margin:auto}
+td{width:34px;height:34px;padding:0;position:relative}
+td.c{background:#fff;border:2px solid var(--ink);text-align:center;font-weight:800;font-size:1.2rem}
+td.c.done{background:var(--hi)}
+td.c.sel{box-shadow:inset 0 0 0 3px var(--pos)}
+td .n{position:absolute;top:0;left:2px;font-size:.6rem;font-weight:700;color:var(--neg);line-height:1}
+#teams{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.team{border:2px solid var(--ink);border-radius:10px;padding:4px 10px;display:flex;justify-content:space-between;align-items:center;background:#fff}
+.team.on{background:var(--hi);transform:scale(1.03)}
+.sc{font-weight:800;font-size:1.25rem}.sc.pos{color:var(--pos)}.sc.neg{color:var(--neg)}
+h2{margin:0 0 6px;font-size:1.1rem}
+#cur{font-size:1.05rem;margin:8px 0}
+.clue{display:block;width:100%;text-align:left;margin:4px 0;border-radius:8px;padding:4px 10px;font-size:.95rem}
+.clue.solved{opacity:.45;text-decoration:line-through;cursor:default}
+#q{margin-top:10px;display:none}
+#q p{margin:4px 0 8px;font-size:1.05rem;line-height:1.35}
+#q .row{display:flex;gap:6px}
+#ans{flex:1;min-width:0;border:2px solid var(--ink);border-radius:10px;padding:4px 10px;text-transform:uppercase;letter-spacing:.12em}
+#msg{min-height:1.5em;margin-top:6px;font-weight:700}
+#msg.ok{color:var(--pos)}#msg.bad{color:var(--neg)}
+.shake{animation:sh .35s}
+@keyframes sh{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media(prefers-reduced-motion:reduce){.shake{animation:none}.team.on{transform:none}}
+.rule{font-size:.85rem;margin:8px 0 0}
+</style>
+</head>
+<body>
+<header>
+ <h1>TTS <span class="p">+</span>Bilangan Bulat<span class="m">−</span> <small style="font-size:.5em">Kelas 7</small></h1>
+ <div class="ctrl">
+  <label for="nteam">Jumlah kelompok</label>
+  <select id="nteam"><option>2</option><option>3</option><option>4</option><option>5</option><option selected>6</option></select>
+  <button class="main" id="reset">Mulai ulang</button>
+ </div>
+</header>
+<main>
+ <section class="panel" id="board" aria-label="Papan teka-teki silang"></section>
+ <aside>
+  <div class="panel">
+   <h2>Skor kelompok</h2>
+   <div id="teams"></div>
+   <p class="rule">Jawaban benar: <b style="color:var(--pos)">+ jumlah huruf</b>. Jawaban salah: <b style="color:var(--neg)">−2</b>. Skor boleh negatif!</p>
+  </div>
+  <div class="panel" style="margin-top:14px">
+   <div id="cur"></div>
+   <div id="list"></div>
+   <div id="q">
+    <p id="qt"></p>
+    <div class="row"><input id="ans" autocomplete="off" aria-label="Jawaban"><button class="main" id="ok">Periksa</button></div>
+    <button id="skip" style="margin-top:6px">Lewati (0 poin)</button>
+   </div>
+   <div id="msg" role="status"></div>
+  </div>
+ </aside>
+</main>
+
+<script>
+/* ====== DATA SOAL — ubah di sini untuk mengganti kata & pertanyaan ======
+   r = baris awal, c = kolom awal, d = 'A' (mendatar) atau 'D' (menurun)
+   Pastikan huruf yang bersilangan sama. */
+const WORDS=[
+ {a:"PLUS",r:1,c:5,d:"A",q:"Naik 5 meter ditulis +5. Dalam bahasa Inggris, tanda + dibaca “…”."},
+ {a:"POSITIF",r:1,c:5,d:"D",q:"Hasil dari (−6) × (−4) = 24. Bilangan 24 termasuk bilangan …"},
+ {a:"NEGATIF",r:4,c:0,d:"A",q:"Penyelam berada di kedalaman −12 m, lalu naik 5 m. Posisinya: −12 + 5 = −7. Bilangan −7 adalah bilangan …"},
+ {a:"NOL",r:4,c:0,d:"D",q:"Dina punya uang Rp9.000, lalu membayar utang Rp9.000. Sisa uangnya: 9 + (−9) = …"},
+ {a:"GANJIL",r:4,c:2,d:"D",q:"Hitung −15 + 4 + 2 = −9. Bilangan −9 termasuk bilangan …"},
+ {a:"SELISIH",r:9,c:0,d:"A",q:"Suhu pagi 24°C dan siang 31°C. Hasil pengurangan 31 − 24 disebut … suhu."},
+ {a:"SUHU",r:9,c:4,d:"D",q:"Puncak gunung bersalju −2°C, kota pantai 32°C. Termometer digunakan untuk mengukur …"},
+ {a:"HITUNG",r:9,c:6,d:"D",q:"Bu Guru memberi soal 8 + (−3). Langkah untuk mencari hasilnya adalah …"}
+];
+const ROWS=15,COLS=9,WIN=2;
+
+let grid,teamN,score,turn,sel,solved,numbers;
+const $=id=>document.getElementById(id);
+
+function init(){
+ teamN=+$("nteam").value;score=Array(teamN).fill(0);turn=0;sel=null;solved=new Set();
+ grid=Array.from({length:ROWS},()=>Array(COLS).fill(null));
+ numbers={};let n=0;
+ const starts=WORDS.map(w=>[w.r,w.c]).sort((x,y)=>x[0]-y[0]||x[1]-y[1]);
+ starts.forEach(([r,c])=>{const k=r+","+c;if(!numbers[k])numbers[k]=++n});
+ WORDS.forEach((w,i)=>{w.n=numbers[w.r+","+w.c];w.cells=[];
+  for(let j=0;j<w.a.length;j++){const r=w.r+(w.d==="D"?j:0),c=w.c+(w.d==="A"?j:0);
+   grid[r][c]=grid[r][c]||{ch:w.a[j],show:false};w.cells.push([r,c])}});
+ $("q").style.display="none";$("msg").textContent="";$("msg").className="";
+ draw();
+}
+function draw(){
+ let h="<table>";
+ for(let r=0;r<ROWS;r++){h+="<tr>";for(let c=0;c<COLS;c++){const g=grid[r][c];
+  if(!g){h+="<td></td>";continue}
+  const isSel=sel!==null&&WORDS[sel].cells.some(x=>x[0]===r&&x[1]===c);
+  h+=`<td class="c${g.show?" done":""}${isSel?" sel":""}">${numbers[r+","+c]?`<span class="n">${numbers[r+","+c]}</span>`:""}${g.show?g.ch:""}</td>`}h+="</tr>"}
+ $("board").innerHTML=h+"</table>";
+ $("teams").innerHTML=score.map((s,i)=>`<div class="team${i===turn?" on":""}"><span>Kel. ${i+1}</span><span class="sc ${s<0?"neg":s>0?"pos":""}">${s>0?"+":s<0?"−":""}${Math.abs(s)}</span></div>`).join("");
+ const done=solved.size===WORDS.length;
+ if(done){const m=Math.max(...score),win=score.map((s,i)=>s===m?i+1:null).filter(Boolean);
+  $("cur").innerHTML=`🎉 Selesai! Juara: <b>Kelompok ${win.join(" & ")}</b> (skor ${m<0?"−":""}${Math.abs(m)})`;$("list").innerHTML="";$("q").style.display="none";return}
+ $("cur").innerHTML=`Giliran <b>Kelompok ${turn+1}</b> — pilih nomor soal:`;
+ $("list").innerHTML=WORDS.map((w,i)=>`<button class="clue${solved.has(i)?" solved":""}" data-i="${i}" ${solved.has(i)?"disabled":""}>${w.n} ${w.d==="A"?"Mendatar":"Menurun"} (${w.a.length} huruf)</button>`).join("");
+ document.querySelectorAll(".clue").forEach(b=>b.onclick=()=>pick(+b.dataset.i));
+}
+function pick(i){sel=i;$("qt").textContent=`${WORDS[i].n} ${WORDS[i].d==="A"?"Mendatar":"Menurun"}: ${WORDS[i].q}`;
+ $("q").style.display="block";$("ans").value="";$("msg").textContent="";$("msg").className="";draw();$("q").style.display="block";$("ans").focus()}
+function next(){turn=(turn+1)%teamN;sel=null;$("q").style.display="none"}
+function check(){
+ if(sel===null)return;const w=WORDS[sel],v=$("ans").value.trim().toUpperCase();if(!v)return;
+ if(v===w.a){score[turn]+=w.a.length;solved.add(sel);w.cells.forEach(([r,c])=>grid[r][c].show=true);
+  $("msg").textContent=`Benar! Kelompok ${turn+1}: +${w.a.length}`;$("msg").className="ok";next();draw()}
+ else{score[turn]-=WIN;$("msg").textContent=`Kurang tepat. Kelompok ${turn+1}: −${WIN}`;$("msg").className="bad";
+  $("q").classList.remove("shake");void $("q").offsetWidth;$("q").classList.add("shake");next();draw()}
+}
+$("ok").onclick=check;
+$("ans").addEventListener("keydown",e=>{if(e.key==="Enter")check()});
+$("skip").onclick=()=>{$("msg").textContent=`Kelompok ${turn+1} melewati soal (0).`;$("msg").className="";next();draw()};
+$("reset").onclick=init;$("nteam").onchange=init;
+init();
+</script>
+</body>
+</html>
