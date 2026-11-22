@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pertidaksamaan | Matematika Kelas 7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ec;--grid:rgba(31,111,92,.08);--card:#fff;--ink:#17261f;--mute:#5d6b64;--line:#dcd8c9;--hero:#0f3d33;--chalk:#f4f1e6;--accent:#f2b134;--main:#1f6f5c;--soft:#e9f2ee;--ok:#1d7a47;--okbg:#d9f2e3;--bad:#c4283a;--badbg:#fbdadd;--hl:#fff1c2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1714;--grid:rgba(79,191,159,.07);--card:#18231f;--ink:#e8efe9;--mute:#9cb0a7;--line:#2b3a34;--hero:#0a2a23;--main:#4fbf9f;--soft:#1f302a;--ok:#5fd18d;--okbg:#1a4a31;--bad:#ff7d8c;--badbg:#53222b;--hl:#4a3f1a}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--ink);font:17px/1.65 "DM Sans",system-ui,"Segoe UI",Arial,sans-serif;background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0}
+.hero{background:var(--hero);color:var(--chalk);border-radius:0 0 30px 30px;padding:20px 0 34px}
+.hero a{color:var(--accent);font-weight:700;text-decoration:none;font-size:.95rem}
+.hero h1{font-size:clamp(1.9rem,6vw,2.7rem);margin:18px 0 8px}
+.hero p{margin:0;color:rgba(244,241,230,.88)}
+.tujuan{display:inline-block;background:var(--accent);color:#2a1f00;font-weight:700;border-radius:999px;padding:3px 14px;font-size:.85rem;margin-bottom:6px}
+h2{font-size:1.45rem;margin:38px 0 10px}
+h2 span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--main);color:#fff;font:700 1rem "DM Sans",sans-serif;margin-right:8px;vertical-align:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin:12px 0}
+.tip{background:var(--hl);border-color:var(--accent)}
+.big{font-size:1.5rem;font-weight:700;text-align:center;margin:8px 0}
+.m{font-family:"STIX Two Text","Cambria Math",Cambria,serif;font-size:1.1em;white-space:nowrap}
+.m i{font-style:italic}
+.fr{display:inline-block;vertical-align:middle;text-align:center;line-height:1.1;margin:0 .1em}
+.fr>span{display:block;padding:0 .2em}.fr>span:first-child{border-bottom:1.5px solid currentColor}
+.hl{background:var(--hl);padding:1px 7px;border-radius:6px}
+table{border-collapse:collapse;width:100%}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left}th{background:var(--soft)}
+.sym{font-size:1.3rem;font-weight:700;color:var(--main);text-align:center}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border:0}
+.row .q{flex:1 1 150px}
+.b{font:700 1.2rem "DM Sans",sans-serif;width:48px;height:44px;border-radius:12px;border:2px solid var(--main);background:var(--card);color:var(--main);cursor:pointer}
+.b:hover{background:var(--soft)}
+.b.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.b.no{background:var(--bad);border-color:var(--bad);color:#fff}
+.fb{flex-basis:100%;font-size:.95rem;min-height:0}
+.fb.ok{color:var(--ok)}.fb.no{color:var(--bad)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.tabs button{font:700 .9rem "DM Sans",sans-serif;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--main);border-color:var(--main);color:#fff}
+.sl{display:block;margin:10px 0 4px;font-weight:700}
+input[type=range]{width:100%;accent-color:var(--main)}
+svg{width:100%;height:auto;display:block}
+.res{text-align:center;font-weight:700;padding:10px;border-radius:12px;background:var(--soft);margin-top:6px}
+details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:8px 0;padding:6px 14px}
+summary{cursor:pointer;font-weight:700;padding:4px 0;color:var(--main)}
+.ans{margin:6px 0 4px;padding:8px 12px;background:var(--okbg);border-radius:10px}
+.soal{border-left:5px solid var(--main);padding:4px 0 4px 14px;margin:18px 0 6px}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+footer{text-align:center;color:var(--mute);padding:30px 0 40px;font-size:.9rem}
+@media(max-width:480px){body{font-size:16px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a href="index.html?kelas=7">← Ruang Matematika</a>
+<h1>Pertidaksamaan</h1>
+<span class="tujuan">Tujuan</span>
+<p>Aku bisa menyatakan hubungan antara dua besaran dengan tanda <span class="m">=</span>, <span class="m">&lt;</span>, <span class="m">&gt;</span>, <span class="m">≤</span>, dan <span class="m">≥</span>.</p>
+</div></header>
+
+<main class="wrap">
+
+<h2><span>1</span>Pemanasan: isi dengan =, &lt;, atau &gt;</h2>
+<p>Hitung dulu kedua sisi, lalu pilih tandanya. Ketuk tombol yang menurutmu benar.</p>
+<div class="card" id="warm"></div>
+
+<h2><span>2</span>Timbangan permen</h2>
+<p>Berat satu permen adalah <span class="m"><i>x</i></span> gram, dan berat satu keping uang logam 1 gram. Geser <span class="m"><i>x</i></span> dan lihat sisi mana yang lebih berat.</p>
+<div class="card">
+<div class="tabs" id="tabs"></div>
+<svg viewBox="0 0 300 175" role="img" aria-label="Timbangan" id="svg"></svg>
+<label class="sl" for="xr">Berat satu permen: <span class="m"><i>x</i></span> = <b id="xv"></b> g</label>
+<input type="range" id="xr" min="0" max="10" value="2">
+<div class="res" id="tres" aria-live="polite"></div>
+</div>
+<p>Pada timbangan ①, sisi kiri <span class="m">(3<i>x</i> + 2)</span> selalu lebih ringan daripada sisi kanan <span class="m">(5<i>x</i> + 3)</span>. Kita tulis <span class="hl m">3<i>x</i> + 2 &lt; 5<i>x</i> + 3</span>.</p>
+<p>Pada timbangan ④, kedua sisi sama berat hanya ketika <span class="m"><i>x</i></span> = 4. Kita tulis <span class="hl m">3<i>x</i> + 2 = <i>x</i> + 10</span>.</p>
+
+<h2><span>3</span>Persamaan dan pertidaksamaan</h2>
+<div class="card">
+<table>
+<tr><th>Nama</th><th>Tanda</th><th>Artinya</th></tr>
+<tr><td><b>Persamaan</b></td><td class="m">=</td><td>kedua sisi sama</td></tr>
+<tr><td rowspan="2"><b>Pertidaksamaan</b></td><td class="m">&gt;</td><td><i>a</i> lebih besar dari <i>b</i> → <span class="m"><i>a</i> &gt; <i>b</i></span></td></tr>
+<tr><td class="m">&lt;</td><td><i>a</i> kurang dari <i>b</i> → <span class="m"><i>a</i> &lt; <i>b</i></span></td></tr>
+</table>
+</div>
+<div class="card tip"><b>Trik mengingat.</b> Mulut tanda &lt; dan &gt; selalu terbuka ke arah bilangan yang <b>lebih besar</b>. Pada <span class="m">3 &lt; 8</span>, mulutnya menghadap 8.</div>
+
+<h2><span>4</span>Tanda ≤ dan ≥</h2>
+<p>Bagaimana kalau hubungannya "tidak kurang dari" atau "tidak lebih dari"? Kita pakai dua tanda baru.</p>
+<div class="card">
+<table>
+<tr><th>Kalimat</th><th>Tanda</th><th>Kata lain</th></tr>
+<tr><td><i>a</i> lebih dari <i>b</i></td><td class="m">&gt;</td><td></td></tr>
+<tr><td><i>a</i> kurang dari <i>b</i></td><td class="m">&lt;</td><td></td></tr>
+<tr><td><i>a</i> <b>tidak kurang dari</b> <i>b</i></td><td class="m">≥</td><td>paling sedikit <i>b</i></td></tr>
+<tr><td><i>a</i> <b>tidak lebih dari</b> <i>b</i></td><td class="m">≤</td><td>paling banyak <i>b</i>, tidak melebihi <i>b</i></td></tr>
+</table>
+</div>
+<div class="card tip"><b>Ingat.</b> <span class="m">≥</span> artinya "lebih besar <u>atau sama dengan</u>", gabungan <span class="m">&gt;</span> atau <span class="m">=</span>. <span class="m">≤</span> artinya "lebih kecil <u>atau sama dengan</u>", gabungan <span class="m">&lt;</span> atau <span class="m">=</span>. Ketiganya, bersama <span class="m">&lt;</span> dan <span class="m">&gt;</span>, disebut <b>tanda pertidaksamaan</b>. Kalimat matematika yang memakai tanda itu disebut <b>pertidaksamaan</b>.</div>
+
+<h2><span>5</span>Contoh: dari cerita ke kalimat matematika</h2>
+<div class="card">
+<h3>Contoh 1 · Tim kasti</h3>
+<p>Tim kasti terdiri atas <i>a</i> siswa dari grup 1 dan <i>b</i> siswa dari grup 2. Banyaknya siswa <b>tidak kurang dari</b> 12.</p>
+<p>① Total siswa: <span class="m"><i>a</i> + <i>b</i></span><br>② "Tidak kurang dari" → <span class="m">≥</span><br>③ Hasilnya:</p>
+<div class="big m"><i>a</i> + <i>b</i> ≥ 12</div>
+</div>
+<div class="card">
+<h3>Contoh 2 · Elevator</h3>
+<p>Pekerja beratnya 60 kg membawa <i>a</i> kotak seberat 20 kg per kotak. Berat total <b>tidak boleh melebihi</b> 300 kg.</p>
+<p>① Berat total: <span class="m">60 + 20<i>a</i></span><br>② "Tidak melebihi" → <span class="m">≤</span><br>③ Hasilnya:</p>
+<div class="big m">20<i>a</i> + 60 ≤ 300</div>
+</div>
+<div class="card">
+<h3>Contoh 3 · Dua wadah</h3>
+<p>Wadah A berisi <i>x</i> liter. Wadah B berisi <i>y</i> liter. Isi <b>dua</b> wadah A lebih banyak dari satu wadah B.</p>
+<p>Dua wadah A berisi <span class="m">2<i>x</i></span> liter, sehingga:</p>
+<div class="big m">2<i>x</i> &gt; <i>y</i></div>
+</div>
+<div class="card ingat">
+<b>Tiga langkah menulis pertidaksamaan:</b><br>① Cari dua besaran yang dibandingkan.<br>② Tulis keduanya dengan huruf dan angka.<br>③ Pilih tanda dari kata kuncinya: lebih dari, kurang dari, tidak kurang dari, atau tidak lebih dari.
+</div>
+
+<h2><span>6</span>Latihan</h2>
+<p>Kerjakan dulu di buku tulismu. Setelah itu, ketuk "Lihat jawaban" untuk memeriksa.</p>
+
+<div class="soal"><b>Soal 2.</b> Nyatakan dengan tanda persamaan atau pertidaksamaan.</div>
+<ol>
+<li>Menambahkan 5 ke 3 kali <i>x</i> menghasilkan 17.</li>
+<li>Perlu waktu kurang dari 15 menit untuk berlari 3.600 m dengan kecepatan <i>x</i> meter per menit.</li>
+<li>Harga total 3 pensil masing-masing <i>a</i> rupiah dan 2 penghapus masing-masing <i>b</i> rupiah lebih dari 9.000 rupiah.</li>
+<li>Berat total <i>a</i> koper masing-masing 3 kg dan <i>b</i> koper masing-masing 5 kg adalah 40 kg.</li>
+</ol>
+<details><summary>Lihat jawaban Soal 2</summary><div class="ans m" style="white-space:normal">
+(1) 3<i>x</i> + 5 = 17<br>
+(2) <span class="fr"><span>3.600</span><span><i>x</i></span></span> &lt; 15 (waktu = jarak : kecepatan)<br>
+(3) 3<i>a</i> + 2<i>b</i> &gt; 9.000<br>
+(4) 3<i>a</i> + 5<i>b</i> = 40</div></details>
+
+<div class="soal"><b>Soal 3.</b> Nyatakan hubungan dua besaran berikut dengan pertidaksamaan.</div>
+<ol>
+<li>Total banyaknya <i>a</i> wanita dan <i>b</i> pria kurang dari 30.</li>
+<li>Total uang untuk membeli <i>a</i> pensil seharga 4.000 rupiah per batang dan 1 buku catatan seharga 1.800 rupiah tidak lebih dari 50.000 rupiah.</li>
+<li>Pita kertas sepanjang <i>x</i> cm dibagi sama panjang menjadi 5 bagian. Panjang sepotong pita tidak kurang dari 2 m.</li>
+<li>Dari <i>a</i> pengunjung, 25 orang pulang. Yang tinggal tidak kurang dari 10 orang.</li>
+</ol>
+<details><summary>Lihat jawaban Soal 3</summary><div class="ans m" style="white-space:normal">
+(1) <i>a</i> + <i>b</i> &lt; 30<br>
+(2) 4.000<i>a</i> + 1.800 ≤ 50.000<br>
+(3) <span class="fr"><span><i>x</i></span><span>5</span></span> ≥ 200 (2 m = 200 cm, satuannya harus sama)<br>
+(4) <i>a</i> − 25 ≥ 10</div></details>
+
+<div class="soal"><b>Soal 4.</b> Harga karcis masuk Taman Mini Indonesia Indah adalah <i>x</i> rupiah untuk dewasa dan <i>y</i> rupiah untuk siswa SMP. Jelaskan hubungan dua besaran berikut.</div>
+<ol><li><span class="m">2<i>x</i> + <i>y</i> = 1.250</span></li><li><span class="m">3<i>x</i> &gt; 5<i>y</i></span></li></ol>
+<details><summary>Lihat jawaban Soal 4</summary><div class="ans">
+(1) Harga 2 karcis dewasa ditambah 1 karcis siswa SMP sama dengan 1.250 rupiah.<br>
+(2) Harga 3 karcis dewasa lebih mahal daripada harga 5 karcis siswa SMP.</div></details>
+
+<div class="soal"><b>Soal 5 · Diskusi.</b> Persegi panjang memiliki panjang <i>a</i> cm dan lebar <i>b</i> cm. Jelaskan hubungan dua besaran berikut.</div>
+<ol><li><span class="m"><i>a</i> &gt; <i>b</i></span></li><li><span class="m"><i>ab</i> = 48</span></li><li><span class="m">2(<i>a</i> + <i>b</i>) ≤ 32</span></li></ol>
+<details><summary>Lihat jawaban Soal 5</summary><div class="ans">
+(1) Panjang lebih dari lebar.<br>
+(2) Luas persegi panjang sama dengan 48 cm².<br>
+(3) Keliling persegi panjang tidak lebih dari 32 cm.</div></details>
+
+</main>
+<footer>Ruang Matematika · Kelas 7 · Bab 3 Persamaan Linear</footer>
+
+<script>
+var W=[["5 + 3","12 − 5",8,7],["20 − 8","7 × 2",12,14],["120 : 4","(−5) × (−6)",30,30],["9 − (−1)","9 + (−1)",10,8]];
+function tanda(a,b){return a>b?">":a<b?"<":"="}
+var warm=document.getElementById("warm");
+W.forEach(function(w,i){
+  var r=document.createElement("div");r.className="row";
+  var q=document.createElement("span");q.className="q m";q.textContent="("+(i+1)+")  "+w[0]+"   ?   "+w[1];r.appendChild(q);
+  var fb=document.createElement("div");fb.className="fb";
+  ["<","=",">"].forEach(function(t){
+    var b=document.createElement("button");b.type="button";b.className="b";b.textContent=t;
+    b.onclick=function(){
+      var ok=t===tanda(w[2],w[3]);
+      Array.prototype.forEach.call(r.querySelectorAll(".b"),function(x){x.className="b"});
+      b.className="b "+(ok?"ok":"no");
+      fb.className="fb "+(ok?"ok":"no");
+      fb.textContent=ok?"Benar! "+w[2]+" "+tanda(w[2],w[3])+" "+w[3]:"Belum tepat. Hitung dulu: kiri = "+w[2]+", kanan = "+w[3]+". Coba lagi.";
+    };
+    r.appendChild(b);
+  });
+  r.appendChild(fb);warm.appendChild(r);
+});
+var P=[{n:"Timbangan ①",a:3,b:2,c:5,d:3,l:"3x + 2",r:"5x + 3"},{n:"Timbangan ④",a:3,b:2,c:1,d:10,l:"3x + 2",r:"x + 10"}];
+var cur=0,xr=document.getElementById("xr"),tabs=document.getElementById("tabs");
+P.forEach(function(p,i){var b=document.createElement("button");b.type="button";b.textContent=p.n;b.onclick=function(){cur=i;draw()};tabs.appendChild(b)});
+function draw(){
+  var p=P[cur],x=+xr.value,L=p.a*x+p.b,R=p.c*x+p.d,t=tanda(L,R);
+  document.getElementById("xv").textContent=x;
+  Array.prototype.forEach.call(tabs.children,function(b,i){b.setAttribute("aria-pressed",i===cur)});
+  var dy=Math.max(-26,Math.min(26,(L-R)*3)),y1=70+dy,y2=70-dy;
+  function pan(cx,y,txt){return '<line x1="'+cx+'" y1="'+y+'" x2="'+(cx-34)+'" y2="'+(y+34)+'" stroke="currentColor"/><line x1="'+cx+'" y1="'+y+'" x2="'+(cx+34)+'" y2="'+(y+34)+'" stroke="currentColor"/><rect x="'+(cx-40)+'" y="'+(y+34)+'" width="80" height="20" rx="6" fill="#7bbf9f" stroke="currentColor"/><text x="'+cx+'" y="'+(y+49)+'" text-anchor="middle" font-size="12" fill="#10281f">'+txt+'</text>'}
+  document.getElementById("svg").innerHTML='<polygon points="150,70 128,160 172,160" fill="#b9c9c0" stroke="currentColor"/><line x1="50" y1="'+y1+'" x2="250" y2="'+y2+'" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="150" cy="70" r="7" fill="#f2b134" stroke="currentColor"/>'+pan(50,y1,L+" g")+pan(250,y2,R+" g");
+  document.getElementById("tres").textContent="Kiri: "+p.l+" = "+L+" g · Kanan: "+p.r+" = "+R+" g → "+L+" "+t+" "+R+(t==="="?" (seimbang)":t==="<"?" (kiri lebih ringan)":" (kiri lebih berat)");
+}
+xr.oninput=draw;draw();
+</script>
+</body>
+</html>
